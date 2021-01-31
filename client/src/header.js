@@ -14,9 +14,9 @@ const useStyles = makeStyles(() => ({
   },
   headerItem: {
   	fontFamily: "Open Sans, sans-serif",
-	fontWeight: 700,
-	size: "18px",
-	marginLeft: "38px"
+  	fontWeight: 700,
+  	size: "18px",
+  	marginLeft: "38px"
   },
   toolbar: {
     display: "flex",

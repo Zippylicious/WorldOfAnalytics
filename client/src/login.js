@@ -20,7 +20,16 @@ class Login extends Component {
 
   render() {
     return (
-      <p>{this.state.apiResponse}</p>
+      <div>
+        <div>
+          <label for="username">Username</label>
+          <input type="text" name="username" placeholder="Enter username" />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" name="password" placeholder="Enter password" />
+        </div>
+      </div>
     )
   }
 }

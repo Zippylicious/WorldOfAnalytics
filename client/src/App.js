@@ -1,7 +1,7 @@
-import './App.css';
 import Header from './header';
 import Login from './login';
 import Blog from './blog';
+import Contact from './contact';
 import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
@@ -14,6 +14,9 @@ function App() {
         </Route>
         <Route exact path = "/login">
           <Login />
+        </Route>
+        <Route exact path = "/contact">
+          <Contact />
         </Route>
       </div>
     </BrowserRouter>
