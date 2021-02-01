@@ -44,7 +44,7 @@ class Contact extends Component {
   	if(cm === 'text' || cm === 'call') {
   		let isValid = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(cv);
   		let isValidInternational = /^\+(?:[0-9] ?){6,14}[0-9]$/.test(cv);
-  		if(!isValid || !isValid) {
+  		if(!isValid || !isValidInternational) {
   			this.setState({errorMessage: "The phone number you have entered is invalid."});
   			return;
   		}

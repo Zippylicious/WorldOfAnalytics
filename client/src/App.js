@@ -2,6 +2,8 @@ import Header from './header';
 import Login from './login';
 import Blog from './blog';
 import Contact from './contact';
+import Engagements from './engagements';
+import Admin from './admin';
 import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
@@ -17,6 +19,12 @@ function App() {
         </Route>
         <Route exact path = "/contact">
           <Contact />
+        </Route>
+        <Route exact path = "/engagements">
+          <Engagements />
+        </Route>
+        <Route exact path = "/admin">
+          <Admin />
         </Route>
       </div>
     </BrowserRouter>

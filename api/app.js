@@ -4,11 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
+var mongoose = require('mongoose');
+var config = require('./routes/config');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var contactRouter = require('./routes/contact');
+var engagementsRouter = require('./routes/engagements');
 
 var app = express();
 
@@ -27,6 +30,10 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/contact', contactRouter);
+app.use('/engagements', engagementsRouter)
+
+var uri = `mongodb+srv://${config.db.username}:${config.db.password}@db1.3sdoz.mongodb.net/${config.db.name}?retryWrites=true&w=majority`;
+mongoose.connect(uri, {useNewUrlParser: true});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
