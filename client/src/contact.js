@@ -37,8 +37,6 @@ class Contact extends Component {
   }
 
   _handleSubmit() {
-  	console.log(this.state);
-
   	this.setState({errorMessage: ""});
 
   	let cm = this.state.contactMethod;
