@@ -65,7 +65,7 @@ export default function Header() {
   };
 
   const headerLogo = (
-  	<Typography variant="h6" component="h1">
+  	<Typography variant="h6" component="h1" className={logo}>
   		World of Analytics
   	</Typography>
   );

@@ -2,7 +2,8 @@ import Header from './header';
 import Login from './login';
 import Blog from './blog';
 import Contact from './contact';
-import Engagements from './engagements';
+import PastEngagements from './pastEngagements';
+import UpcomingEngagements from './upcomingEngagements';
 import Admin from './admin/admin';
 import { BrowserRouter, Route } from "react-router-dom";
 
@@ -20,8 +21,11 @@ function App() {
         <Route exact path = "/contact">
           <Contact />
         </Route>
-        <Route exact path = "/engagements">
-          <Engagements />
+        <Route exact path = "/engagements/past">
+          <PastEngagements />
+        </Route>
+        <Route exact path = "/engagements/upcoming">
+          <UpcomingEngagements />
         </Route>
         <Route exact path = "/admin">
           <Admin />

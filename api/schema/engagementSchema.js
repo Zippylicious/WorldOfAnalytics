@@ -6,10 +6,12 @@ var EngagementSchema = new mongoose.Schema({
 	eventLink: String,
 	registrationLink: String,
 	cost: Number,
-	inPerson: Boolean,
+	isVirtual: Boolean,
+	recordingLink: String,
+	presentationLink: String,
 	isUpcoming: Boolean
 });
 
-var Engagement = mongoose.model('Engagement', EngagementSchema);
+var Engagement = mongoose.model('Engagements', EngagementSchema);
 
 module.exports = Engagement;
