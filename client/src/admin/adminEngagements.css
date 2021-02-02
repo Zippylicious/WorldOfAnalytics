@@ -1,0 +1,12 @@
+#error-message {
+	color: red;
+	white-space: pre-line;
+}
+
+#adminEngagement div {
+	margin-top: 20px;
+}
+
+#adminEngagement button {
+	margin-top: 20px;
+}

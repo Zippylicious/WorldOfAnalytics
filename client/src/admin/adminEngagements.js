@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import './adminEngagements.css';
 
 class AdminEngagements extends Component {
 
@@ -12,17 +13,17 @@ class AdminEngagements extends Component {
 			event: '',
 			eventLink: '',
 			registrationLink: '',
-			cost: '',
+			cost: 0,
 			isVirtual: 1,
 			recordingLink: '',
 			presentationLink: '',
 			isUpcoming: true,
-			error: ''
+			errors: []
 		};
 
 		this._dateChange = this._dateChange.bind(this);
 		this._handleChange = this._handleChange.bind(this);
-		this._hanndleSubmit = this._hanndleSubmit.bind(this);
+		this._handleSubmit = this._handleSubmit.bind(this);
 	}
 
 	_dateChange(e) {
@@ -37,13 +38,47 @@ class AdminEngagements extends Component {
 		console.log(this.state);
 	}
 
-	_hanndleSubmit() {
+	_handleSubmit() {
+		console.log("Handling submit");
+		//Check required fields
+		var errors = ["Required fields that are missing:"];
+		if(this.state.date === '') {
+			errors.push("Date");
+		}
+		if(this.state.time === '') {
+			errors.push("Time");
+		}
+		if(this.state.event === '') {
+			errors.push("Event");
+		}
+		if(this.state.eventLink === '') {
+			errors.push("Event Link");
+		}
 
+		if(this.state.isUpcoming) {
+			if(this.state.registrationLink === '') {
+				errors.push("Regsitration Link");
+			}
+		} else {
+			if(this.state.recordingLink === '') {
+				errors.push("Recording Link");
+			}
+		}
+
+		if(errors.length > 1) {
+			this.setState({errors: errors});
+		} else {
+			this.setState({errors: []});
+			axios.post("http://localhost:9000/engagements", this.state)
+			  	.then(() => console.log("New engagement submitted"))
+			  	.catch(err => {console.error(err);}
+			);
+		}
 	}
 
 	render() {
 		return (
-			<div>
+			<div id="adminEngagement">
 				<h3>Add an Engagement</h3>
 				<div>
 					<label htmlFor="date">Date</label>
@@ -53,10 +88,10 @@ class AdminEngagements extends Component {
 				</div>
 				<div>
 					<label htmlFor="event">Event</label>
-					<input type="text" name="event" value={this.state.event} onChange={this._handleChange}/>
+					<textarea rows="5" cols="50" name="event" value={this.state.event} onChange={this._handleChange}></textarea>
 				</div>
 				<div>
-					<label htmlFor="event-link">Event Link</label>
+					<label htmlFor="eventLink">Event Link</label>
 					<input type="url" name="eventLink" value={this.state.eventLink} onChange={this._handleChange}/>
 				</div>
 
@@ -65,7 +100,7 @@ class AdminEngagements extends Component {
 				{ this.state.isUpcoming ?
 					<div>
 						<div>
-							<label htmlFor="registration-link">Regsitration Link</label>
+							<label htmlFor="registrationLink">Regsitration Link</label>
 							<input type="url" name="registrationLink" value={this.state.registrationLink} onChange={this._handleChange}/>
 						</div>
 						<div>
@@ -73,8 +108,8 @@ class AdminEngagements extends Component {
 							<input type="number" name="cost" value={this.state.cost} onChange={this._handleChange}/>
 						</div>
 						<div>
-							<label htmlFor="is-virtual">Is it virtual?</label>
-							<select name="is-virtual" id="isVirtual" value={this.state.isVirtual} onChange={this._handleChange}>
+							<label htmlFor="isVirtual">Is it virtual?</label>
+							<select name="isVirtual" value={this.state.isVirtual} onChange={this._handleChange}>
 					      		<option value="1">Yes</option>
 					      		<option value="0">No</option>
 					      	</select>
@@ -89,11 +124,11 @@ class AdminEngagements extends Component {
 				{ !this.state.isUpcoming ?
 					<div>
 						<div>
-							<label htmlFor="recording-link">Recording Link</label>
+							<label htmlFor="recordingLink">Recording Link</label>
 							<input type="url" name="recordingLink" value={this.state.recordingLink} onChange={this._handleChange}/>
 						</div>
 						<div>
-							<label htmlFor="presentation-link">Presentation Link</label>
+							<label htmlFor="presentationLink">Presentation Link</label>
 							<input type="url" name="presentationLink" value={this.state.presentationLink} onChange={this._handleChange}/>
 						</div>
 					</div>
@@ -102,9 +137,9 @@ class AdminEngagements extends Component {
 				}
 
 
-				<button name="engagement-submit" id="engagementSubmit" onClick={this._hanndleSubmit}>Submit</button>
+				<button name="engagement-submit" id="engagementSubmit" onClick={this._handleSubmit}>Submit</button>
 
-				<p name="error-message" id="error-message">{this.state.error}</p>
+				<p name="error-message" id="error-message">{this.state.errors.join('\n')}</p>
 			</div>
 		);
 	}

@@ -57,10 +57,9 @@ class Contact extends Component {
   	}
 
   	axios.post("http://localhost:9000/contact", this.state)
-  	.then(() => console.log("Contact form submitted"))
-  	.catch(err => {
-  		console.error(err);
-  	});
+  	     .then(() => console.log("Contact form submitted"))
+  	     .catch(err => {console.error(err);}
+    );
   }
 
   render() {
