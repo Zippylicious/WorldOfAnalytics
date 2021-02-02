@@ -3,7 +3,7 @@ import Login from './login';
 import Blog from './blog';
 import Contact from './contact';
 import Engagements from './engagements';
-import Admin from './admin';
+import Admin from './admin/admin';
 import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
