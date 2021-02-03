@@ -7,13 +7,13 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#400CCC"
   },
   logo: {
-    fontFamily: "Work Sans, sans-serif",
-    fontWeight: 600,
+    fontFamily: "Garamond",
+    fontWeight: 700,
     color: "#FFFEFE",
     textAlign: "left"
   },
   headerItem: {
-  	fontFamily: "Open Sans, sans-serif",
+  	fontFamily: "Garamond",
   	fontWeight: 700,
   	size: "18px",
   	marginLeft: "38px"
