@@ -5,7 +5,7 @@ import Contact from './contact';
 import Engagements from './engagements/engagements';
 import Books from './books';
 import About from './about';
-import Share from './share';
+import Share from './share/share';
 import Admin from './admin/admin';
 import { BrowserRouter, Route } from "react-router-dom";
 
