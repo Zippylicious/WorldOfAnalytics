@@ -21,3 +21,5 @@ Implement engagements admin edit
 ~~Set up react~~  
 ~~Set up node~~  
 Set up hosting under domain  
+  
+Design favicon  

@@ -3,6 +3,8 @@ import Login from './login';
 import Blog from './blog';
 import Contact from './contact';
 import Engagements from './engagements/engagements';
+import Books from './books';
+import About from './about';
 import Admin from './admin/admin';
 import { BrowserRouter, Route } from "react-router-dom";
 
@@ -20,8 +22,14 @@ function App() {
         <Route exact path = "/contact">
           <Contact />
         </Route>
-        <Route exact path = "/engagements/">
+        <Route exact path = "/engagements">
           <Engagements />
+        </Route>
+        <Route exact path = "/books">
+          <Books />
+        </Route>
+        <Route exact path ="/about">
+          <About />
         </Route>
         <Route exact path = "/admin">
           <Admin />
