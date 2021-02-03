@@ -23,7 +23,7 @@ class PastEngagements extends Component {
 			<div>
 				<h3>Past Engagements</h3>
 				{this.state.engagements.map((engagement) =>
-					<div className="engagement" name="engagement">
+					<div className="engagement" name="engagement" key={engagement._id}>
 						<p>{moment(engagement.date).format('MM/DD/YYYY')}</p>
 						<p>{engagement.event}</p>
 						<a className="engagementLink" name="engagementLink" href={engagement.eventLink}>Event Site</a>

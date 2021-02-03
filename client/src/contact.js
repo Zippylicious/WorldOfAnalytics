@@ -37,14 +37,12 @@ class Contact extends Component {
   }
 
   _handleSubmit() {
-  	this.setState({errorMessage: ""});
-
   	let cm = this.state.contactMethod;
   	let cv = this.state.contactValue;
   	if(cm === 'text' || cm === 'call') {
   		let isValid = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(cv);
   		let isValidInternational = /^\+(?:[0-9] ?){6,14}[0-9]$/.test(cv);
-  		if(!isValid || !isValidInternational) {
+  		if(!isValid && !isValidInternational) {
   			this.setState({errorMessage: "The phone number you have entered is invalid."});
   			return;
   		}
@@ -60,6 +58,14 @@ class Contact extends Component {
   	     .then(() => console.log("Contact form submitted"))
   	     .catch(err => {console.error(err);}
     );
+
+    this.setState({
+      contactMethod: 'text',
+      contactValue: '',
+      areaOfInterest: 'engagement',
+      freeFormText: '',
+      errorMessage: ''
+    });
   }
 
   render() {
@@ -83,7 +89,7 @@ class Contact extends Component {
 	      	</select>
 	      </div>
 	      <div>
-	      	<textarea id="free-form-text" name="free-form-text" value={this.state.freeFormText} onChange={this._freeFormTextChange}/>
+	      	<textarea id="free-form-text" name="free-form-text" rows="8" cols="40" value={this.state.freeFormText} onChange={this._freeFormTextChange}/>
 	      </div>
 	      <button id="contact-submit" name="contact-submit" onClick={this._handleSubmit}>Submit</button>
 	      <p style={{color: "red"}} id="error-message" name="error-message">{this.state.errorMessage}</p> 

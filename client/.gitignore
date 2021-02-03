@@ -12,8 +12,7 @@
 /build
 
 # images
-.jpg
-.png
+/src/img/*
 
 # misc
 .DS_Store

@@ -28,7 +28,7 @@ function App() {
         <Route exact path = "/books">
           <Books />
         </Route>
-        <Route exact path ="/about">
+        <Route exact path ="/">
           <About />
         </Route>
         <Route exact path = "/admin">

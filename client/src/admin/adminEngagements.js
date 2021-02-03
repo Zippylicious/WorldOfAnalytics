@@ -68,11 +68,24 @@ class AdminEngagements extends Component {
 		if(errors.length > 1) {
 			this.setState({errors: errors});
 		} else {
-			this.setState({errors: []});
 			axios.post("http://localhost:9000/engagements", this.state)
 			  	.then(() => console.log("New engagement submitted"))
 			  	.catch(err => {console.error(err);}
 			);
+
+			 this.setState({
+				date: '',
+				time: '',
+				event: '',
+				eventLink: '',
+				registrationLink: '',
+				cost: 0,
+				isVirtual: 1,
+				recordingLink: '',
+				presentationLink: '',
+				isUpcoming: true,
+				errors: []
+			});
 		}
 	}
 

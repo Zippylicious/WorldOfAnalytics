@@ -23,10 +23,10 @@ class UpcomingEngagements extends Component {
 			<div>
 				<h3>Upcoming Engagements</h3>
 				{this.state.engagements.map((engagement) =>
-					<div className="engagement" name="engagement">
+					<div className="engagement" name="engagement" key={engagement._id}>
 						<p>{moment(engagement.date).format('MM/DD/YYYY')}</p>
 						<p>{engagement.event}</p>
-						<p>Cost: ${engagement.cost}</p>
+						<p>Cost: {(engagement.cost > 0) ? "$"+engagement.cost : "Free to attend"}</p>
 						<p>This event is {engagement.isVirtual ? 'virtual' : 'in-person'}</p>
 						<a className="engagementLink" name="engagementLink" href={engagement.eventLink}>Event Site</a>
 						<a className="engagementLink" name="engagementLink" href={engagement.registrationLink}>Registration Link</a>

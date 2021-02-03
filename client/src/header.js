@@ -27,7 +27,7 @@ const useStyles = makeStyles(() => ({
 const headerList = [
 	{
 		label: "About",
-		href: "/about"
+		href: "/"
 	},
 	{
 		label: "Books",
