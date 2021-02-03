@@ -7,11 +7,10 @@ var cors = require('cors');
 var mongoose = require('mongoose');
 var config = require('./routes/config');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var contactRouter = require('./routes/contact');
 var engagementsRouter = require('./routes/engagements');
+var shareRouter = require('./routes/share');
 
 var app = express();
 
@@ -26,11 +25,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/contact', contactRouter);
-app.use('/engagements', engagementsRouter)
+app.use('/engagements', engagementsRouter);
+app.use('/share', shareRouter);
 
 var uri = `mongodb+srv://${config.db.username}:${config.db.password}@db1.3sdoz.mongodb.net/${config.db.name}?retryWrites=true&w=majority`;
 mongoose.connect(uri, {useNewUrlParser: true});

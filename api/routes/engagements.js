@@ -38,10 +38,10 @@ router.post('/', function(req, res, next) {
 		isVirtual: req.body.isVirtual,
 		recordingLink: req.body.recordingLink,
 		presentationLink: req.body.presentationLink
-	})
+	});
 	newEngagement.save(function (err) {
 		console.log(err);
-	})
+	});
 });
 
 module.exports = router;

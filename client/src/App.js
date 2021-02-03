@@ -5,6 +5,7 @@ import Contact from './contact';
 import Engagements from './engagements/engagements';
 import Books from './books';
 import About from './about';
+import Share from './share';
 import Admin from './admin/admin';
 import { BrowserRouter, Route } from "react-router-dom";
 
@@ -30,6 +31,9 @@ function App() {
         </Route>
         <Route exact path ="/">
           <About />
+        </Route>
+        <Route exact path ="/share">
+          <Share />
         </Route>
         <Route exact path = "/admin">
           <Admin />

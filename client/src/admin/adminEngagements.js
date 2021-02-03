@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import moment from 'moment';
-import './adminEngagements.css';
 
 class AdminEngagements extends Component {
 
@@ -35,11 +34,9 @@ class AdminEngagements extends Component {
 
 	_handleChange(e) {
 		this.setState({ [e.target.name]: e.target.value });
-		console.log(this.state);
 	}
 
 	_handleSubmit() {
-		console.log("Handling submit");
 		//Check required fields
 		var errors = ["Required fields that are missing:"];
 		if(this.state.date === '') {
@@ -91,7 +88,7 @@ class AdminEngagements extends Component {
 
 	render() {
 		return (
-			<div id="adminEngagement">
+			<div className="adminForm">
 				<h3>Add an Engagement</h3>
 				<div>
 					<label htmlFor="date">Date</label>
@@ -150,9 +147,9 @@ class AdminEngagements extends Component {
 				}
 
 
-				<button name="engagement-submit" id="engagementSubmit" onClick={this._handleSubmit}>Submit</button>
+				<button name="engagementSubmit" id="engagementSubmit" onClick={this._handleSubmit}>Submit</button>
 
-				<p name="error-message" id="error-message">{this.state.errors.join('\n')}</p>
+				<p name="errorMessage" className="errorMessage">{this.state.errors.join('\n')}</p>
 			</div>
 		);
 	}
