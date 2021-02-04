@@ -1,0 +1,10 @@
+.engagement {
+	display: inline-block;
+	margin: 0 auto;
+	padding: 10px;
+	border-style: solid;
+}
+
+.engagement a {
+	display: block;
+}

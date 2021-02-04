@@ -39,8 +39,12 @@ router.post('/', function(req, res, next) {
 		recordingLink: req.body.recordingLink,
 		presentationLink: req.body.presentationLink
 	});
-	newEngagement.save(function (err) {
-		console.log(err);
+	newEngagement.save(function (err, result) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log(result);
+		}
 	});
 });
 

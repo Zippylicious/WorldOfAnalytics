@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PastEngagements from './pastEngagements'
 import UpcomingEngagements from './upcomingEngagements'
+import './engagements.css'
 
 class Engagements extends Component {
 

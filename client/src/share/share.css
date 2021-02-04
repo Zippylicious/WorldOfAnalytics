@@ -1,0 +1,15 @@
+.share {
+	display: block;
+	width: 25%;
+	margin: 0 auto;
+	border-style: solid;
+	padding: 10px;
+}
+
+.addComment {
+	display: block;
+}
+
+.share textarea {
+	resize: none;
+}

@@ -21,9 +21,40 @@ router.post('/', function(req, res, next) {
 		link: req.body.link,
 		likes: 0
 	});
-	newShare.save(function (err) {
-		console.log(err);
+	newShare.save(function (err, result) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log(result);
+		}
 	});
+});
+
+router.get('/comments/:id', function(req, res, next) {
+	var query = ShareComment.find({ parentPostId: { $eq: req.params.id }});
+	query.exec(function(err, comments) {
+		if(err) {
+			console.log(err);
+		} else {
+			res.send(comments);
+		}
+	});
+});
+
+router.post('/comments/:id', function(req, res, next) {
+	const newComment = new ShareComment({
+		parentPostId: req.params.id,
+		author: (req.body.author === '') ? "Anonymous" : req.body.author,
+		text: req.body.text,
+		likes: 0
+	});
+	newComment.save(function (err, result) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log(result);
+		}
+	})
 });
 
 module.exports = router;
