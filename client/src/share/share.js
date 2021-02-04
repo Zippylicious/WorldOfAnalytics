@@ -9,35 +9,81 @@ class Share extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      shares: []
+      shares: [],
+      commentSubmits: [],
+      commentsInstance: 0
     }
 
-    this._getComments = this._getComments.bind(this);
+    this._getTextAreaValue = this._getTextAreaValue.bind(this);
+    this._containsKey = this._containsKey.bind(this);
+    this._handleChange = this._handleChange.bind(this);
     this._submitComment = this._submitComment.bind(this);
+  }
+
+  _getTextAreaValue(shareId) {
+    var index = this._containsKey(shareId + "comment");
+    if(index === -1) {
+      return ''
+    } else {
+      return this.state.commentSubmits[index]["value"];
+    }
+  }
+
+  _containsKey(key) {
+    var i;
+    for (i = 0; i < this.state.commentSubmits.length; i++) {
+      if(this.state.commentSubmits[i].hasOwnProperty("key") && this.state.commentSubmits[i]["key"] === key) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  _handleChange(e, shareId) {
+      var key = shareId + "comment";
+      var index = this._containsKey(key);
+      if(index === -1) {
+        var joined = this.state.commentSubmits.concat(
+          {
+            key: key,
+            value: e.target.value
+          }
+        );
+        this.setState({commentSubmits: joined});
+      } else {
+        var items = [...this.state.commentSubmits];
+        var item = {...items[index]};
+        item["value"] = e.target.value;
+        items[index] = item;
+        this.setState({commentSubmits: items});
+      }
+  }
+
+  async _submitComment(shareId) {
+      var commentKey = shareId + "comment";
+      var comment = this.state.commentSubmits[this._containsKey(commentKey)];
+
+      var endpoint = "http://localhost:9000/share/comments/" + shareId;
+      var request = {
+        shareId: shareId,
+        author: '',
+        text: comment["value"],
+        likes: 0
+      };
+      await axios.post(endpoint, request);
+      var text = {
+        target: {
+          value: ''
+        }
+      };
+      this._handleChange(text, shareId);
+      this.setState({commentsInstance: Math.random()});
   }
 
   componentDidMount() {
     axios.get("http://localhost:9000/share").then((response) => {
       this.setState({shares: response.data});
     });
-  }
-
-  _getComments(shareId) {
-    var endpoint = "http://localhost:9000/share/comment/" + shareId;
-    axios.get(endpoint).then((response) => {
-      //{this._getComments(share._id)}
-      console.log(response.data);
-      return response.data;
-    });
-  }
-
-  _submitComment(e) {
-    console.log(e);
-    //need to fetch parent div key
-    //need to fetch info from same div - text
-    console.log(e.target.parentNode.childNodes[5])
-
-    //var endpoint = "http://localhost:9000/share/comment/" + shareId;
   }
 
   render() {
@@ -58,9 +104,21 @@ class Share extends Component {
             />
             <p>{share.likes} likes</p>
             <hr/>
-            <ShareComments />
-            <textarea name="addComment" id={share._id + "comment"} className="addComment" rows="3" cols="75" />
-            <button name="submitComment" onClick={this._submitComment}>Comment</button>
+            <ShareComments 
+              shareId={share._id}
+              commentsInstance={this.state.commentsInstance}
+            />
+            <div>
+              <textarea 
+                name="addComment" 
+                className="addComment" 
+                rows="3" cols="75" 
+                key={share._id + "comment"}
+                value={this._getTextAreaValue(share._id)}
+                onChange={(e) => {this._handleChange(e, share._id)}}
+              />
+              <button name="submitComment" onClick={() => {this._submitComment(share._id)}}>Comment</button>
+            </div>
           </div> 
         )}
       </div>

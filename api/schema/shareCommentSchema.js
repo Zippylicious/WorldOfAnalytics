@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var ShareCommentSchema = new mongoose.Schema({
-	parentPostId: Number,
+	shareId: mongoose.Schema.Types.ObjectId,
 	author: String,
 	text: String,
 	likes: Number,

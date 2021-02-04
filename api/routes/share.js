@@ -31,7 +31,7 @@ router.post('/', function(req, res, next) {
 });
 
 router.get('/comments/:id', function(req, res, next) {
-	var query = ShareComment.find({ parentPostId: { $eq: req.params.id }});
+	var query = ShareComment.find({ shareId: { $eq: req.params.id }});
 	query.exec(function(err, comments) {
 		if(err) {
 			console.log(err);
@@ -43,7 +43,7 @@ router.get('/comments/:id', function(req, res, next) {
 
 router.post('/comments/:id', function(req, res, next) {
 	const newComment = new ShareComment({
-		parentPostId: req.params.id,
+		shareId: req.params.id,
 		author: (req.body.author === '') ? "Anonymous" : req.body.author,
 		text: req.body.text,
 		likes: 0
@@ -51,8 +51,12 @@ router.post('/comments/:id', function(req, res, next) {
 	newComment.save(function (err, result) {
 		if (err) {
 			console.log(err);
+			res.status(500);
+			res.send();
 		} else {
 			console.log(result);
+			res.status(200);
+			res.send();
 		}
 	})
 });
