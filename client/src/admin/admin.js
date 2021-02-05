@@ -3,6 +3,7 @@ import AdminEngagements from './adminEngagements';
 import AdminShare from './adminShare';
 import AdminBook from './adminBook';
 import AdminAbout from './adminAbout';
+import AdminBlog from './adminBlog';
 import './admin.css';
 
 class Admin extends Component {
@@ -12,6 +13,7 @@ class Admin extends Component {
 		this.state = {
 			showAbout: true,
 			showBook: false,
+			showBlog: false,
 			showShare: false,
 			showEngagements: false
 		};
@@ -28,6 +30,8 @@ class Admin extends Component {
 		switch(this.state.show) {
 			case "book":
 				return <AdminBook />;
+			case "blog":
+				return <AdminBlog />;
 			case "share":
 				return <AdminShare />;
 			case "engagements":
@@ -44,6 +48,7 @@ class Admin extends Component {
 				<div>
 					<button name="about" onClick={this._handleClick}>About</button>
 					<button name="book" onClick={this._handleClick}>Book</button>
+					<button name="blog" onClick={this._handleClick}>Blog</button>
 					<button name="share" onClick={this._handleClick}>Share</button>
 					<button name="engagements" onClick={this._handleClick}>Engagements</button>
 				</div>

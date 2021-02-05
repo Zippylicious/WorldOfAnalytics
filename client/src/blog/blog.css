@@ -1,0 +1,10 @@
+.preview {
+	width: 50%;
+	margin: 0 auto;
+	border-style: solid;
+	padding: 5px 10px;
+}
+
+.previewTitle {
+	font-weight: bold;
+}

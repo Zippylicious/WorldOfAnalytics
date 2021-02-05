@@ -6,7 +6,7 @@ var router = express.Router();
 router.put('/', function(req, res, next) {
 	var update = {};
 	if(req.body.picture) {
-		update["picture"] = req.body.picture;
+		//update["picture"] = req.body.picture;
 	}
 	if(req.body.bio) {
 		update["bio"] = req.body.bio;
@@ -37,9 +37,14 @@ router.get('/', function(req, res, next) {
 			res.status(500);
 			res.send("About GET failure");
 		} else {
-			console.log(result);
+			//var base64Picture = Buffer.from(result.picture).toString('base64');
 			res.status(200);
-			res.send(result);
+			res.send({
+				picture: "",
+				bio: result.bio,
+				services: result.services,
+				statement: result.statement
+			});
 		}
 	});
 });

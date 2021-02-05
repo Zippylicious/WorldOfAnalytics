@@ -1,6 +1,6 @@
 import Header from './header';
 import Login from './login';
-import Blog from './blog';
+import Blog from './blog/blog';
 import Contact from './contact';
 import Engagements from './engagements/engagements';
 import Books from './books';
