@@ -13,6 +13,7 @@ var engagementsRouter = require('./routes/engagements');
 var shareRouter = require('./routes/share');
 var aboutRouter = require('./routes/about');
 var blogRouter = require('./routes/blog');
+var bookRouter = require('./routes/books');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use('/engagements', engagementsRouter);
 app.use('/share', shareRouter);
 app.use('/about', aboutRouter);
 app.use('/blog', blogRouter);
+app.use('/books', bookRouter);
 
 var uri = `mongodb+srv://${config.db.username}:${config.db.password}@db1.3sdoz.mongodb.net/${config.db.name}?retryWrites=true&w=majority`;
 mongoose.connect(uri, {useNewUrlParser: true});
