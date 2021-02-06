@@ -47,7 +47,7 @@ class Blog extends Component {
 	}
 
 	componentDidMount() {
-		axios.get("http://localhost:9000/blog").then((response) => {
+		axios.get("http://localhost:9000/blog/posts").then((response) => {
 			this.setState({posts: response.data});
 		});
 	}
@@ -68,7 +68,7 @@ class Blog extends Component {
 					:
 					<div>
 						<button onClick={this._switchToPreview}>Back</button>
-						<p class="postTitle">{this.state.post.title}</p>
+						<p className="postTitle">{this.state.post.title}</p>
 						<p>{this.state.post.byline}</p>
 						<p>{this.state.post.body}</p>
 					</div>

@@ -30,6 +30,9 @@ Style about page
 ~~Implement engagements page~~  
 ~~Implement contact page~~  
   
+~~Implement blog admin add~~  
+Implement blog admin delete      
+    
 ~~Implement engagements admin add~~  
 Implement engagements admin delete   
   
@@ -40,7 +43,7 @@ Implement share admin delete
   
 ~~Implement book admin add~~     
   
-Add authentication for admin functions (editing, adding (non-comments))  
+Add authentication for admin functions (editing, adding (non-comments), deleting, admin tab access)  
   
 Allow for text input to retain formatting for blog, about, etc  
   
@@ -53,9 +56,11 @@ Design favicon
 
 ### Not Required, but High Priority
 
+Mobile view  
 Implement engagements admin edit  
 Implement share admin edit   
 Implement book admin edit   
+Implement blog admin edit  
   
   
 ### Aspirational Goals, Low Priority
