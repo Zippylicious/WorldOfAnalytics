@@ -16,32 +16,29 @@ Unless you are a trusted developer with credentials, you will need to run your o
   
 ## TODO
 
+### Required for PROD launch  
 Style engagements page  
 Style contact page  
-Style admin page (low priority)  
 Style share page  
 Style blog page 
 Style about page   
   
 ~~Implement blog page~~  
-Implement books page  
-Implement about page  
+~~Implement books page~~  
+~~Implement about page~~  
 ~~Implement stuff I share page~~  
 ~~Implement engagements page~~  
 ~~Implement contact page~~  
   
 ~~Implement engagements admin add~~  
-Implement engagements admin delete  
-Implement engagements admin edit  
+Implement engagements admin delete   
   
 ~~Implement share admin add~~  
 Implement share admin delete  
-Implement share admin edit 
   
-Implement about admin update
+~~Implement about admin update~~
   
-Implement book share admin add  
-Implement book share admin edit    
+~~Implement book admin add~~     
   
 Add authentication for admin functions (editing, adding (non-comments))  
   
@@ -53,6 +50,17 @@ Allow for text input to retain formatting for blog, about, etc
 Set up hosting under domain  
   
 Design favicon  
+
+### Not Required, but High Priority
+
+Implement engagements admin edit  
+Implement share admin edit   
+Implement book admin edit   
   
-Fix denied POST requests from Amazon iFrame(?)    
+  
+### Aspirational Goals, Low Priority
+  
+Fix denied POST requests from Amazon iFrame(?)  
+Style admin page (low priority)    
+Implement image upload and display in about & books (low priority)    
   
