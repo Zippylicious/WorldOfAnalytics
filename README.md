@@ -41,7 +41,8 @@ Implement share admin delete
   
 ~~Implement about admin update~~
   
-~~Implement book admin add~~     
+~~Implement book admin add~~  
+Implement book admin delete     
   
 Add authentication for admin functions (editing, adding (non-comments), deleting, admin tab access)  
   
@@ -66,6 +67,6 @@ Implement blog admin edit
 ### Aspirational Goals, Low Priority
   
 Fix denied POST requests from Amazon iFrame(?)  
-Style admin page (low priority)    
-Implement image upload and display in about & books (low priority)    
+Style admin page     
+Implement image upload and display in about & books  
   
