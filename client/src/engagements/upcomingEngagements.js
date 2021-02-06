@@ -28,8 +28,8 @@ class UpcomingEngagements extends Component {
 						<p>{engagement.event}</p>
 						<p>Cost: {(engagement.cost > 0) ? "$"+engagement.cost : "Free to attend"}</p>
 						<p>This event is {engagement.isVirtual ? 'virtual' : 'in-person'}</p>
-						<a className="engagementLink" name="engagementLink" href={engagement.eventLink}>Event Site</a>
-						<a className="engagementLink" name="engagementLink" href={engagement.registrationLink}>Registration Link</a>
+						<a className="engagementLink" name="engagementLink" href={engagement.eventLink} target="_blank" rel="noreferrer">Event Site</a>
+						<a className="engagementLink" name="engagementLink" href={engagement.registrationLink} target="_blank" rel="noreferrer">Registration Link</a>
 					</div>
 				)}
 			</div>

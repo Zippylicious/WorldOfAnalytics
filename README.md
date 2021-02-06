@@ -53,6 +53,9 @@ Allow for text input to retain formatting for blog, about, etc
 ~~Set up node~~  
 Set up hosting under domain  
   
+~~Make it so links open new page and direct towards absolute path, rather than relative~~  
+~~Implement likes on share posts~~   
+  
 Design favicon  
 
 ### Not Required, but High Priority
@@ -68,5 +71,6 @@ Implement blog admin edit
   
 Fix denied POST requests from Amazon iFrame(?)  
 Style admin page     
-Implement image upload and display in about & books  
+Implement image upload and display in about & books   
+Add basic validation to prevent duplicate likes from same user    
   

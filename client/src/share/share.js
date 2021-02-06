@@ -14,10 +14,28 @@ class Share extends Component {
       commentsInstance: 0
     }
 
+    this._likePost = this._likePost.bind(this);
     this._getTextAreaValue = this._getTextAreaValue.bind(this);
     this._containsKey = this._containsKey.bind(this);
     this._handleChange = this._handleChange.bind(this);
     this._submitComment = this._submitComment.bind(this);
+  }
+
+  _likePost(shareId) {
+    var endpoint = "http://localhost:9000/share/like/" + shareId;
+    axios.post(endpoint, {});
+    // likes being incremented in DB, but not shown in state on frontend - check below loop
+    var i;
+    for(i = 0; i < this.state.shares.length; i++) {
+      if(this.state.shares[i]._id === shareId) {
+        var shares = [...this.state.shares];
+        var share = {...shares[i]};
+        share.likes += 1;
+        shares[i] = share;
+        this.setState({ shares: shares});
+        return;
+      }
+    }
   }
 
   _getTextAreaValue(shareId) {
@@ -102,7 +120,7 @@ class Share extends Component {
               url={share.link}
               proxyUrl="https://thingproxy.freeboard.io/fetch"
             />
-            <p>{share.likes} likes</p>
+            <div onClick={() => this._likePost(share._id)}>{share.likes} likes</div>
             <hr/>
             <ShareComments 
               shareId={share._id}

@@ -21,7 +21,7 @@ class Books extends Component {
 		 	<div>
 		 		{ this.state.books.map((book) => 
 					<div className="book" name="book" key={book._id}>
-						<iframe type="text/html" width="336" height="550" frameBorder="0" allowFullScreen className="bookPreview" src={book.sampleLink} ></iframe>
+						<iframe type="text/html" width="336" height="550" frameBorder="0" allowFullScreen className="bookPreview" src={book.sampleLink} title={book.title}></iframe>
 						<p>{book.description}</p>
 						<p>{book.fromTheAuthor}</p>
 						<p>{book.inPraiseOf}</p>

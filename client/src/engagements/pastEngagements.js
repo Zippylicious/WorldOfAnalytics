@@ -26,9 +26,9 @@ class PastEngagements extends Component {
 					<div className="engagement" name="engagement" key={engagement._id}>
 						<p>{moment(engagement.date).format('MM/DD/YYYY')}</p>
 						<p>{engagement.event}</p>
-						<a className="engagementLink" name="engagementLink" href={engagement.eventLink}>Event Site</a>
-						<a className="engagementLink" name="engagementLink" href={engagement.recordingLink}>Recording Link</a>
-						<a className="engagementLink" name="engagementLink" href={engagement.presentationLink}>Presentation Link</a>
+						<a className="engagementLink" name="engagementLink" href={engagement.eventLink} target="_blank" rel="noreferrer">Event Site</a>
+						<a className="engagementLink" name="engagementLink" href={engagement.recordingLink} target="_blank" rel="noreferrer">Recording Link</a>
+						<a className="engagementLink" name="engagementLink" href={engagement.presentationLink} target="_blank" rel="noreferrer">Presentation Link</a>
 					</div>
 				)}
 			</div>

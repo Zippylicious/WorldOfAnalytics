@@ -61,4 +61,21 @@ router.post('/comments/:id', function(req, res, next) {
 	})
 });
 
+router.post('/like/:shareId', function(req, res, next) {
+	Share.findOneAndUpdate(
+		{ _id: req.params.shareId },
+		{ $inc: { likes: 1 } },
+		{ new: true }
+	).exec(function(err, result) {
+		if(err) {
+			console.log(err);
+			res.send(500)
+			res.send("Could not like share");
+		} else {
+			res.status(200);
+			res.send(result);
+		}
+	})
+})
+
 module.exports = router;

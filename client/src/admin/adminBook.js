@@ -111,7 +111,7 @@ class AdminBook extends Component {
 					<textarea name="translatedLanguages" rows={rows} cols={cols} value={this.state.translatedLanguages} onChange={this._handleChange} />
 				</div>
 
-				<button name="submit" name="submit" onClick={this._handleSubmit}>Submit</button>
+				<button className="submit" name="submit" onClick={this._handleSubmit}>Submit</button>
 				<p className="errorMessage" name="errorMessage">{this.state.errors.join('\n')}</p>
 			</div>
 		)
