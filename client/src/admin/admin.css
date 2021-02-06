@@ -1,0 +1,16 @@
+.errorMessage {
+	color: red;
+	white-space: pre-line;
+}
+
+.adminForm div {
+	margin-top: 20px;
+}
+
+.adminForm button {
+	margin-top: 20px;
+}
+
+.adminForm label {
+	margin-right: 5px;
+}
