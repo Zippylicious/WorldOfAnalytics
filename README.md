@@ -53,3 +53,6 @@ Allow for text input to retain formatting for blog, about, etc
 Set up hosting under domain  
   
 Design favicon  
+  
+Fix denied POST requests from Amazon iFrame(?)    
+  
