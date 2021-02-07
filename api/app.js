@@ -28,13 +28,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
-app.use('/contact', contactRouter);
-app.use('/engagements', engagementsRouter);
-app.use('/share', shareRouter);
-app.use('/about', aboutRouter);
-app.use('/blog', blogRouter);
-app.use('/books', bookRouter);
-app.use('/user', userRouter);
+app.use('/admin/contact', contactRouter);
+app.use('/admin/engagements', engagementsRouter);
+app.use('/admin/share', shareRouter);
+app.use('/admin/about', aboutRouter);
+app.use('/admin/blog', blogRouter);
+app.use('/admin/books', bookRouter);
+app.use('/admin/user', userRouter);
 
 // Use static built react front-end. DO NOT USE FOR REACT DEVELOPMENT (its static, duh)
 //app.use('*', express.static('./public'));

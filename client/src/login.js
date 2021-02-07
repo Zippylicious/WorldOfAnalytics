@@ -21,7 +21,7 @@ class Login extends Component {
   _handleSubmit(e) {
     e.preventDefault();
     let self = this;
-    axios.post("http://localhost:9000/user/authenticate", this.state)
+    axios.post("http://localhost:9000/admin/user/authenticate", this.state)
       .then(function(response) {
         if (response.status === 200) {
           self.props.history.push('/');

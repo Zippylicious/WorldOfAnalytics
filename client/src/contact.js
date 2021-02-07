@@ -54,7 +54,7 @@ class Contact extends Component {
   		}
   	}
 
-  	axios.post("http://localhost:9000/contact", this.state)
+  	axios.post("http://localhost:9000/admin/contact", this.state)
   	     .then(() => console.log("Contact form submitted"))
   	     .catch(err => {console.error(err);}
     );

@@ -15,7 +15,8 @@ class Admin extends Component {
 			showBook: false,
 			showBlog: false,
 			showShare: false,
-			showEngagements: false
+			showEngagements: false,
+			baseUrl: "http://localhost:9000/admin/"
 		};
 
 		this._handleClick = this._handleClick.bind(this);
@@ -29,15 +30,15 @@ class Admin extends Component {
 	_showComponent() {
 		switch(this.state.show) {
 			case "book":
-				return <AdminBook />;
+				return <AdminBook url={this.state.baseUrl + "books"}/>;
 			case "blog":
-				return <AdminBlog />;
+				return <AdminBlog url={this.state.baseUrl + "blog"}/>;
 			case "share":
-				return <AdminShare />;
+				return <AdminShare url={this.state.baseUrl + "share"}/>;
 			case "engagements":
-				return <AdminEngagements />;
+				return <AdminEngagements url={this.state.baseUrl + "engagements"}/>;
 			default:
-				return <AdminAbout />;
+				return <AdminAbout url={this.state.baseUrl + "about"}/>;
 		}
 	}
 

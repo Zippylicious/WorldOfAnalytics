@@ -56,7 +56,7 @@ class AdminAbout extends Component {
 		if(Object.keys(request).length === 0 && request.constructor === Object) {
 			this.setState({error: "You must have entered at least one field."});
 		} else {
-			axios.put("http://localhost:9000/about", request)
+			axios.put(this.props.url, request)
 			  	.then(() => console.log("About updated"))
 			  	.catch(err => {console.error(err);}
 			);
@@ -69,7 +69,7 @@ class AdminAbout extends Component {
 	}
 
 	componentDidMount() {
-		axios.get("http://localhost:9000/about").then((about) => {
+		axios.get(this.props.url).then((about) => {
 			this.setState({
 				bio: about.data.bio,
 				services:about.data.services,

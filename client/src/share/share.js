@@ -22,7 +22,7 @@ class Share extends Component {
   }
 
   _likePost(shareId) {
-    var endpoint = "http://localhost:9000/share/like/" + shareId;
+    var endpoint = "http://localhost:9000/admin/share/like/" + shareId;
     axios.post(endpoint, {});
     var i;
     for(i = 0; i < this.state.shares.length; i++) {
@@ -80,7 +80,7 @@ class Share extends Component {
       var commentKey = shareId + "comment";
       var comment = this.state.commentSubmits[this._containsKey(commentKey)];
 
-      var endpoint = "http://localhost:9000/share/comments/" + shareId;
+      var endpoint = "http://localhost:9000/admin/share/comments/" + shareId;
       var request = {
         shareId: shareId,
         author: '',
@@ -98,7 +98,7 @@ class Share extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:9000/share").then((response) => {
+    axios.get("http://localhost:9000/admin/share").then((response) => {
       this.setState({shares: response.data});
     });
   }

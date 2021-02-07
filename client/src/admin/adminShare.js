@@ -33,7 +33,7 @@ class AdminShare extends Component {
 			this.setState({errors: errors});
 		} else {
 			//submit post to create new share
-			axios.post("http://localhost:9000/share", this.state)
+			axios.post(this.props.url, this.state)
 			  	.then(() => console.log("New engagement submitted"))
 			  	.catch(err => {console.error(err);}
 			);

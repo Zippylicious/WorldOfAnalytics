@@ -36,7 +36,7 @@ class AdminBlog extends Component {
 		if(errors.length > 1) {
 			this.setState({errors: errors});
 		} else {
-			axios.post("http://localhost:9000/blog", this.state)
+			axios.post(this.props.url, this.state)
 			  	.then(() => console.log("New blog post submitted"))
 			  	.catch(err => {console.error(err);}
 			);

@@ -51,7 +51,7 @@ class AdminBook extends Component {
 		if(errors.length > 1) {
 			this.setState({errors: errors});
 		} else {
-			axios.post("http://localhost:9000/books", this.state)
+			axios.post(this.props.url, this.state)
 			  	.then(() => console.log("New book submitted"))
 			  	.catch(err => {console.error(err);}
 			);
