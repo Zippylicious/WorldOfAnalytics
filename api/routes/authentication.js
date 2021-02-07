@@ -2,7 +2,6 @@ const jwt = require('jsonwebtoken');
 const config = require('./config.js');
 
 const withAuth = function(req, res, next) {
-  console.log(req);
   const token = req.cookies["woa_token"];
   if (!token) {
     res.status(401).send('Unauthorized: No token provided');

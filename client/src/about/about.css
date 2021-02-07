@@ -1,0 +1,14 @@
+.aboutPortrait {
+	width: 50%;
+	display: inline-block;
+}
+
+.aboutContent {
+	width: 50%;
+	display: inline-block;
+}
+
+.aboutWrapper {
+	width: 75%;
+	margin: 0 auto;
+}

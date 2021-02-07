@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import './books.css'
 
 class Books extends Component {
 
@@ -21,13 +22,26 @@ class Books extends Component {
 		 	<div>
 		 		{ this.state.books.map((book) => 
 					<div className="book" name="book" key={book._id}>
-						<iframe type="text/html" width="336" height="550" frameBorder="0" allowFullScreen className="bookPreview" src={book.sampleLink} title={book.title}></iframe>
-						<p>{book.description}</p>
-						<p>{book.fromTheAuthor}</p>
-						<p>{book.inPraiseOf}</p>
-						<p>{book.buyBookLink}</p>
-						<p>{book.buyAudiobookLink}</p>
-						<p>{book.translatedLanguages}</p>
+						<div className="bookThumbnail">
+							<iframe type="text/html" width="336" height="550" frameBorder="0" allowFullScreen className="bookPreview" src={book.sampleLink} title={book.title}></iframe>
+						</div>
+
+						<div className="bookDescriptors">
+							<h4>Description</h4>
+							<p>{book.description}</p>
+
+							<h4>From the Author</h4>
+							<p>{book.fromTheAuthor}</p>
+
+							<h4>In Praise Of</h4>
+							<p>{book.inPraiseOf}</p>
+
+							<a href={book.buyBookLink} target="_blank" rel="noreferrer">Buy the Book</a>
+							<a href={book.buyAudiobookLink} target="_blank" rel="noreferrer">Buy the AudioBook</a>
+
+							<h4>Translated Languages</h4>
+							<p>{book.translatedLanguages}</p>
+						</div>
 					</div>
 				)}
 		 	</div>

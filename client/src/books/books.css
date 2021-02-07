@@ -8,3 +8,19 @@
 .bookPreview {
 	max-width: 100%;
 }
+
+.bookThumbnail {
+	height: 100%;
+	width: 30%;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.bookDescriptors {
+	display: inline-block;
+	width: 67%;
+}
+
+.bookDescriptors a {
+	display: block;
+}

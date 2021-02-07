@@ -4,7 +4,7 @@ import Blog from './blog/blog';
 import Contact from './contact';
 import Engagements from './engagements/engagements';
 import Books from './books/books';
-import About from './about';
+import About from './about/about';
 import Share from './share/share';
 import Admin from './admin/admin';
 import withAuth from './withAuth';
