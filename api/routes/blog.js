@@ -1,10 +1,11 @@
-var express = require('express');
-var config = require('./config.js');
-var Blog = require('./../schema/blogSchema.js');
-var moment = require('moment');
-var router = express.Router();
+const express = require('express');
+const config = require('./config.js');
+const Blog = require('./../schema/blogSchema.js');
+const moment = require('moment');
+const withAuth = require('./authentication.js');
+const router = express.Router();
 
-router.post('/', function(req, res, next) {
+router.post('/', withAuth, function(req, res, next) {
 	const newPost = new Blog({
 		date: moment().format("MM/DD/YYYY"),
 		title: req.body.title,

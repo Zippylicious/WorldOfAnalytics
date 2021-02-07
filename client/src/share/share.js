@@ -24,7 +24,6 @@ class Share extends Component {
   _likePost(shareId) {
     var endpoint = "http://localhost:9000/share/like/" + shareId;
     axios.post(endpoint, {});
-    // likes being incremented in DB, but not shown in state on frontend - check below loop
     var i;
     for(i = 0; i < this.state.shares.length; i++) {
       if(this.state.shares[i]._id === shareId) {

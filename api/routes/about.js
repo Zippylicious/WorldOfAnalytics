@@ -1,9 +1,10 @@
-var express = require('express');
-var config = require('./config.js');
-var About = require('./../schema/aboutSchema.js');
-var router = express.Router();
+const express = require('express');
+const config = require('./config.js');
+const About = require('./../schema/aboutSchema.js');
+const withAuth = require('./authentication.js');
+const router = express.Router();
 
-router.put('/', function(req, res, next) {
+router.put('/', withAuth, function(req, res, next) {
 	var update = {};
 	if(req.body.picture) {
 		//update["picture"] = req.body.picture;

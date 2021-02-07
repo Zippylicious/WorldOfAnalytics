@@ -4,7 +4,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   header: {
-    backgroundColor: "#400CCC"
+    backgroundColor: "#47494A"
   },
   logo: {
     fontFamily: "Garamond",

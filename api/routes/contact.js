@@ -1,7 +1,7 @@
-var express = require('express');
-var nodemailer = require('nodemailer');
-var config = require('./config.js');
-var router = express.Router();
+const express = require('express');
+const nodemailer = require('nodemailer');
+const config = require('./config.js');
+const router = express.Router();
 
 router.post('/', function(req, res, next) {
 

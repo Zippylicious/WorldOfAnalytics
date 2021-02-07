@@ -44,7 +44,11 @@ Implement share admin delete
 ~~Implement book admin add~~  
 Implement book admin delete     
   
-Add authentication for admin functions (editing, adding (non-comments), deleting, admin tab access)  
+~~Add authentication for admin functions (editing, adding (non-comments), deleting)~~  
+Add authentication for admin page on front end  
+Add login page  
+~~Add register endpoint (no need for UI)~~
+Add admin accounts and hide register endpoint beind auth    
   
 Allow for text input to retain formatting for blog, about, etc  
   
@@ -65,6 +69,7 @@ Implement engagements admin edit
 Implement share admin edit   
 Implement book admin edit   
 Implement blog admin edit  
+Allow for book sample to be user provided file rather than just Amazon embed url  
   
   
 ### Aspirational Goals, Low Priority

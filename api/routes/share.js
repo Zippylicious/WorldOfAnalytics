@@ -1,8 +1,9 @@
-var express = require('express');
-var config = require('./config.js');
-var Share = require('./../schema/shareSchema');
-var ShareComment = require('./../schema/shareCommentSchema');
-var router = express.Router();
+const express = require('express');
+const config = require('./config.js');
+const Share = require('./../schema/shareSchema');
+const ShareComment = require('./../schema/shareCommentSchema');
+const withAuth = require('./authentication.js');
+const router = express.Router();
 
 router.get('/', function(req, res, next) {
 	var query = Share.find();
@@ -15,7 +16,7 @@ router.get('/', function(req, res, next) {
 	});
 });
 
-router.post('/', function(req, res, next) {
+router.post('/', withAuth, function(req, res, next) {
 	const newShare = new Share({
 		text: req.body.text,
 		link: req.body.link,

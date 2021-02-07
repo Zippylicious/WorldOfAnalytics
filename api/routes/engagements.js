@@ -1,8 +1,9 @@
-var express = require('express');
-var moment = require('moment');
-var config = require('./config.js');
-var Engagement = require('./../schema/engagementSchema');
-var router = express.Router();
+const express = require('express');
+const moment = require('moment');
+const config = require('./config.js');
+const Engagement = require('./../schema/engagementSchema');
+const withAuth = require('./authentication.js');
+const router = express.Router();
 
 router.get('/past', function(req, res, next) {
 	var query = Engagement.find({ date: {$lt: moment()} });
@@ -27,7 +28,7 @@ router.get('/upcoming', function(req, res, next) {
 	});
 });
 
-router.post('/', function(req, res, next) {
+router.post('/', withAuth, function(req, res, next) {
 	var date = req.body.date + " " + req.body.time + ":00";
 	const newEngagement = new Engagement({
 		date: date,

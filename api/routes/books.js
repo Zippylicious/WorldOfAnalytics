@@ -1,7 +1,8 @@
-var express = require('express');
-var config = require('./config.js');
-var Books = require('./../schema/bookSchema');
-var router = express.Router();
+const express = require('express');
+const config = require('./config.js');
+const Books = require('./../schema/bookSchema');
+const withAuth = require('./authentication.js');
+const router = express.Router();
 
 router.get('/', function(req, res, next) {
 	Books.find().exec(function(err, books) {
@@ -15,7 +16,7 @@ router.get('/', function(req, res, next) {
 	})
 });
 
-router.post('/', function(req, res, next) {
+router.post('/', withAuth, function(req, res, next) {
 	var newBook = new Books({
 		sampleLink: req.body.sampleLink.replace("embed", "card"),
 		coverImage: req.body.coverImage,
