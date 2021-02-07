@@ -36,6 +36,9 @@ app.use('/blog', blogRouter);
 app.use('/books', bookRouter);
 app.use('/user', userRouter);
 
+// Use static built react front-end. DO NOT USE FOR REACT DEVELOPMENT (its static, duh)
+//app.use('*', express.static('./public'));
+
 var uri = `mongodb+srv://${config.db.username}:${config.db.password}@db1.3sdoz.mongodb.net/${config.db.name}?retryWrites=true&w=majority`;
 mongoose.connect(uri, {useNewUrlParser: true});
 

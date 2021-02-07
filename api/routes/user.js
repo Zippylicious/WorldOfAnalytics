@@ -7,10 +7,13 @@ const router = express.Router();
 
 // TODO - register admin users in database (likely me and Dad). Then hide behind authentication.
 router.post('/register', function(req, res) {
-  var { email, password } = req.body;
-  var User = new User({ email, password });
-  User.save(function(err) {
+  var newUser = new User({
+    email: req.body.email, 
+    password: req.body.password
+  });
+  newUser.save(function(err, result) {
     if (err) {
+      console.log(err);
       res.status(500)
         .send("Error registering new user please try again.");
     } else {
@@ -47,12 +50,9 @@ router.post('/authenticate', function(req, res) {
               error: 'Incorrect email or password'
           });
         } else {
-          var payload = { email };
-          //TODO - Update this to be longer when actually in production. 1 minute only for testing purposes
-          var token = jwt.sign(payload, secret, {
-            expiresIn: '60000'
-          });
-          res.cookie('token', token, { httpOnly: true })
+          // TODO - currently should only be session cookie. Add long expiration once done testing.
+          var token = jwt.sign({ email: email }, config.token.secret);
+          res.cookie('woa_token', token, { httpOnly: true })
             .sendStatus(200);
         }
       });

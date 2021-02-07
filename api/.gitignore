@@ -11,6 +11,9 @@
 # production
 /build
 
+#react static folder
+/public
+
 # misc
 .DS_Store
 .env.local
