@@ -48,7 +48,9 @@ Implement book admin delete
 Add authentication for admin page on front end  
 Add login page  
 ~~Add register endpoint (no need for UI)~~
-Add admin accounts and hide register endpoint beind auth    
+Add admin accounts and hide register endpoint beind auth  
+Add displayed feedback for successful or failed admin action  
+Add local storage to persist admin tab on reload    
   
 Allow for text input to retain formatting for blog, about, etc  
   

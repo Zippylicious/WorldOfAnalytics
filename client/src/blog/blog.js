@@ -59,7 +59,7 @@ class Blog extends Component {
 					<div>
 						{this.state.posts.map((post) => 
 							<div className="preview" name="preview" key={post._id} onClick={() => this._switchToPost(post._id)}>
-								<p class="previewTitle">{post.title}</p>
+								<p className="previewTitle">{post.title}</p>
 								<p>{post.byline}</p>
 								<p>{this._truncateBody(post.body)}</p>
 							</div>

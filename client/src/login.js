@@ -1,34 +1,53 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 class Login extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {apiResponse : ''};
+    this.state = {
+      email: '',
+      password: ''
+    };
+
+    this._handleChange = this._handleChange.bind(this);
+    this._handleSubmit = this._handleSubmit.bind(this);
   }
 
-  callLogin() {
-    fetch("http://localhost:9000/login")
-      .then(res => res.text())
-      .then(res => this.setState({ apiResponse : res}))
-      .catch(err => err)
+  _handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
   }
 
-  componentDidMount() {
-    this.callLogin();
+  _handleSubmit(e) {
+    e.preventDefault();
+    axios.post("http://localhost:9000/user/authenticate", this.state)
+      .then(function(response) {
+        if (response.status === 200) {
+          this.props.history.push('/');
+        } else {
+          const error = new Error(response.error);
+          throw error;
+        }
+      })
+      .catch(function(error) {
+        console.error(error);
+        alert('Error logging in please try again');
+      })
   }
 
   render() {
     return (
       <div>
         <div>
-          <label for="username">Username</label>
-          <input type="text" name="username" placeholder="Enter username" />
+          <label htmlFor="email">Email</label>
+          <input type="text" name="email" placeholder="Enter email" value={this.state.email} onChange={this._handleChange} />
         </div>
         <div>
-          <label for="password">Password</label>
-          <input type="password" name="password" placeholder="Enter password" />
+          <label htmlFor="password">Password</label>
+          <input type="password" name="password" placeholder="Enter password" value={this.state.password} onChange={this._handleChange} />
         </div>
+
+        <button name="submit" className="submit" onClick={this._handleSubmit}>Submit</button>
       </div>
     )
   }

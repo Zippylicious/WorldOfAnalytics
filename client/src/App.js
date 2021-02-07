@@ -7,6 +7,7 @@ import Books from './books/books';
 import About from './about';
 import Share from './share/share';
 import Admin from './admin/admin';
+import withAuth from './withAuth';
 import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
@@ -14,30 +15,14 @@ function App() {
     <BrowserRouter>
       <Header/>
       <div style={{ marginTop: 100}}>
-        <Route exact path = "/blog">
-          <Blog />
-        </Route>
-        <Route exact path = "/login">
-          <Login />
-        </Route>
-        <Route exact path = "/contact">
-          <Contact />
-        </Route>
-        <Route exact path = "/engagements">
-          <Engagements />
-        </Route>
-        <Route exact path = "/books">
-          <Books />
-        </Route>
-        <Route exact path ="/">
-          <About />
-        </Route>
-        <Route exact path ="/share">
-          <Share />
-        </Route>
-        <Route exact path = "/admin">
-          <Admin />
-        </Route>
+        <Route exact path = "/blog" component={Blog} />
+        <Route exact path = "/login" component={Login} />
+        <Route exact path = "/contact" component={Contact} />
+        <Route exact path = "/engagements" component={Engagements} />
+        <Route exact path = "/books" component={Books} />
+        <Route exact path ="/" component={About} />
+        <Route exact path ="/share" component={Share} />
+        <Route exact path = "/admin" component={withAuth(Admin)} />
       </div>
     </BrowserRouter>
   );
