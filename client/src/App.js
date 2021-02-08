@@ -1,7 +1,7 @@
 import Header from './header';
 import Login from './login';
 import Blog from './blog/blog';
-import Contact from './contact';
+import Contact from './contact/contact';
 import Engagements from './engagements/engagements';
 import Books from './books/books';
 import About from './about/about';
@@ -9,6 +9,7 @@ import Share from './share/share';
 import Admin from './admin/admin';
 import withAuth from './withAuth';
 import { BrowserRouter, Route } from "react-router-dom";
+import './App.css';
 
 function App() {
   return (

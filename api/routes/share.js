@@ -74,7 +74,7 @@ router.post('/like/:shareId', function(req, res, next) {
 			res.send("Could not like share");
 		} else {
 			res.status(200);
-			res.send(result);
+			res.send();
 		}
 	})
 })

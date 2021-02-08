@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import portrait from './../img/portrait.jpg';
+import portrait from './../img/portrait.jpeg';
 import './about.css';
 
 class About extends Component {

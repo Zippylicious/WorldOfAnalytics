@@ -2,8 +2,13 @@
 	display: block;
 	width: 25%;
 	margin: 0 auto;
-	border-style: solid;
 	padding: 10px;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	background-color: #f9f9f9;
 }
 
 .addComment {
@@ -12,4 +17,73 @@
 
 .share textarea {
 	resize: none;
+}
+
+.shareAuthor {
+	width: 100%;
+	height: 50px;
+}
+
+.shareAuthorImage {
+	display: inline-block;
+	height: 100%;
+}
+
+.shareAuthorImage img {
+	max-height: 100%;
+	max-width: 100%;
+	border-radius: 75px;
+}
+
+.shareAuthorText {
+	display: inline-block;
+	height: 100%;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.shareAuthorText span {
+	height: 50%;
+	margin: auto;
+	display: block;
+}
+
+.shareAuthorName {
+	font-weight: bold;
+}
+
+.shareAuthorDescription {
+	color: #808080;
+	font-size: .8em;
+}
+
+.shareText {
+	padding: 25px 0px;
+}
+
+.shareLikes {
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.shareLikeCount {
+	display: inline-block;
+	margin-left: 5px;
+}
+
+.shareCommentsIcon {
+	display: inline-block;
+}
+
+.shareCommentsIcon div {
+	display: inline-block;
+	margin-left: 5px;
+}
+
+.shareLikesAndComments {
+	margin-left: 5px;
+}
+
+.userInteractions {
+	padding: 10px 5px;
 }

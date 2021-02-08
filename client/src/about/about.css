@@ -1,6 +1,12 @@
 .aboutPortrait {
-	width: 50%;
+	width: 45%;
+	margin-right: 5%;
 	display: inline-block;
+}
+
+.aboutPortrait img {
+	max-height: 100%;
+	max-width: 100%
 }
 
 .aboutContent {
