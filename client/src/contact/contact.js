@@ -95,7 +95,7 @@ class Contact extends Component {
           <h4>Your Message</h4>
 	      	<textarea id="free-form-text" name="free-form-text" value={this.state.freeFormText} onChange={this._freeFormTextChange}/>
 	      </div>
-	      <button id="contact-submit" name="contact-submit" onClick={this._handleSubmit}>Submit</button>
+	      <button className="btn" name="submit" onClick={this._handleSubmit}>Submit</button>
 	      <p style={{color: "red"}} id="error-message" name="error-message">{this.state.errorMessage}</p> 
       </div>
     )

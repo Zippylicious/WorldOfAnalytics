@@ -67,7 +67,7 @@ class Blog extends Component {
 					</div>
 					:
 					<div>
-						<button onClick={this._switchToPreview}>Back</button>
+						<button className="btn" onClick={this._switchToPreview}>Back</button>
 						<p className="postTitle">{this.state.post.title}</p>
 						<p>{this.state.post.byline}</p>
 						<p>{this.state.post.body}</p>

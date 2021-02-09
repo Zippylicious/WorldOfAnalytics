@@ -1,6 +1,6 @@
 .share {
 	display: block;
-	width: 25%;
+	width: 640px;
 	margin: 0 auto;
 	padding: 10px;
 	border-style: solid;
@@ -64,6 +64,7 @@
 .shareLikes {
 	display: inline-block;
 	margin-right: 20px;
+	margin-left: 5px;
 }
 
 .shareLikeCount {
@@ -81,9 +82,41 @@
 }
 
 .shareLikesAndComments {
-	margin-left: 5px;
+	margin-left: 
 }
 
 .userInteractions {
 	padding: 10px 5px;
+}
+
+.comment {
+	background-color: #F0F0F0;
+	border-radius: 10px;
+	margin: 10px 0px;
+	padding: 5px 10px;
+}
+
+/* Style comment span - you need to add dates to comments */
+.commentContent {
+	width: 80%;
+}
+
+.commentDate {
+	color: 	#606060;
+	font-size: .8em;
+	float: right;
+}
+
+/* Style comment submit button */
+.submitComment {
+
+}
+
+.addComment {
+	width: 100%;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+    border-radius: 5px;
+    padding: 2px;
 }

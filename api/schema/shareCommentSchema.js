@@ -5,6 +5,7 @@ var ShareCommentSchema = new mongoose.Schema({
 	author: String,
 	text: String,
 	likes: Number,
+	date: Date
 });
 
 var ShareComment = mongoose.model('ShareComment', ShareCommentSchema);

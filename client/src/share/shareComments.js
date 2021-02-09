@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import moment from 'moment';
 
 class ShareComments extends Component {
 
@@ -35,7 +36,8 @@ class ShareComments extends Component {
 				<input type="hidden" value={this.props.commentsInstance} />
 				{this.state.comments.map((comment) => 
 					<div className="comment" key={comment._id}>
-						<p>{comment.text}</p>
+						<span className="commentContent">{comment.text}</span>
+						<span className="commentDate">{moment(comment.date).format("MM/DD/YYYY")}</span>
 					</div>
 				)}
 			</div>

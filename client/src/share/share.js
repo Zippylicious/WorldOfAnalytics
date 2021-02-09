@@ -5,6 +5,7 @@ import ShareComments from './shareComments';
 import headshot from './../img/headshot.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faComment } from '@fortawesome/free-solid-svg-icons'
+import TextAreaAutosize from 'react-textarea-autosize';
 import './share.css';
 
 class Share extends Component {
@@ -20,46 +21,39 @@ class Share extends Component {
     this._showComments = this._showComments.bind(this);
     this._likePost = this._likePost.bind(this);
     this._getTextAreaValue = this._getTextAreaValue.bind(this);
-    this._containsKey = this._containsKey.bind(this);
+    this._containsCommentsKey = this._containsCommentsKey.bind(this);
+    this._containsShare = this._containsShare.bind(this);
     this._handleChange = this._handleChange.bind(this);
     this._submitComment = this._submitComment.bind(this);
   }
 
   _showComments(shareId) {
-    var i;
-    for(i = 0; i < this.state.shares.length; i++) {
-      if(this.state.shares[i]._id === shareId) {
-        var shares = [...this.state.shares];
-        var share = {...shares[i]};
-        share.showComments = !this.state.shares[i].showComments;
-        shares[i] = share;
-        this.setState({ shares: shares});
-        return;
-      }
+    var index = this._containsShare(shareId);
+    if(index !== -1) {
+      var shares = [...this.state.shares];
+      var share = {...shares[index]};
+      share.showComments = !this.state.shares[index].showComments;
+      shares[index] = share;
+      this.setState({ shares: shares});
     }
   }
 
   _likePost(shareId) {
-    var i;
-    for(i = 0; i < this.state.shares.length; i++) {
-      if(this.state.shares[i]._id === shareId) {
-        if(!this.state.shares[i].likeDisabled) {
-          var endpoint = "http://localhost:9000/admin/share/like/" + shareId;
-          axios.post(endpoint, {});
-          var shares = [...this.state.shares];
-          var share = {...shares[i]};
-          share.likes += 1;
-          share.likeDisabled = true;
-          shares[i] = share;
-          this.setState({ shares: shares});
-        }
-        return;
-      }
+    var index = this._containsShare(shareId);
+    if(index !== -1 && !this.state.shares[index].likeDisabled) {
+      var endpoint = "http://localhost:9000/admin/share/like/" + shareId;
+      axios.post(endpoint, {});
+      var shares = [...this.state.shares];
+      var share = {...shares[index]};
+      share.likes += 1;
+      share.likeDisabled = true;
+      shares[index] = share;
+      this.setState({ shares: shares});
     }
   }
 
   _getTextAreaValue(shareId) {
-    var index = this._containsKey(shareId + "comment");
+    var index = this._containsCommentsKey(shareId + "comment");
     if(index === -1) {
       return ''
     } else {
@@ -67,7 +61,7 @@ class Share extends Component {
     }
   }
 
-  _containsKey(key) {
+  _containsCommentsKey(key) {
     var i;
     for (i = 0; i < this.state.commentSubmits.length; i++) {
       if(this.state.commentSubmits[i].hasOwnProperty("key") && this.state.commentSubmits[i]["key"] === key) {
@@ -77,29 +71,53 @@ class Share extends Component {
     return -1;
   }
 
-  _handleChange(e, shareId) {
-      var key = shareId + "comment";
-      var index = this._containsKey(key);
-      if(index === -1) {
-        var joined = this.state.commentSubmits.concat(
-          {
-            key: key,
-            value: e.target.value
-          }
-        );
-        this.setState({commentSubmits: joined});
-      } else {
-        var items = [...this.state.commentSubmits];
-        var item = {...items[index]};
-        item["value"] = e.target.value;
-        items[index] = item;
-        this.setState({commentSubmits: items});
+  _containsShare(shareId) {
+    var i;
+    for(i = 0; i < this.state.shares.length; i++) {
+      if(this.state.shares[i]._id === shareId) {
+        return i;
       }
+    }
+    return -1;
+  }
+
+  // Handle change for comments
+  _handleChange(e, shareId) {
+    var key = shareId + "comment";
+    var index = this._containsCommentsKey(key);
+    if(index === -1) {
+      var joined = this.state.commentSubmits.concat(
+        {
+          key: key,
+          value: e.target.value
+        }
+      );
+      this.setState({commentSubmits: joined});
+    } else {
+      var items = [...this.state.commentSubmits];
+      var item = {...items[index]};
+      item["value"] = e.target.value;
+      items[index] = item;
+      this.setState({commentSubmits: items});
+    }
+    // TODO - need to hide/show the comment button on empty/present text
+    var shareIndex = this._containsShare(shareId);
+    if(shareIndex !== -1) {
+      var shares = [...this.state.shares];
+      var share = {...shares[index]};
+      if(e.target.value === '') {
+        share["showCommentSubmit"] = false;
+      } else {
+        share["showCommentSubmit"] = true;
+      }
+      shares[index] = share;
+      this.setState({ shares: shares});
+    }
   }
 
   async _submitComment(shareId) {
       var commentKey = shareId + "comment";
-      var comment = this.state.commentSubmits[this._containsKey(commentKey)];
+      var comment = this.state.commentSubmits[this._containsCommentsKey(commentKey)];
 
       var endpoint = "http://localhost:9000/admin/share/comments/" + shareId;
       var request = {
@@ -124,6 +142,7 @@ class Share extends Component {
       for(i = 0; i < response.data.length; i++) {
         response.data[i]["likeDisabled"] = false;
         response.data[i]["showComments"] = false;
+        response.data[i]["showCommentSubmit"] = false;
       }
       this.setState({shares: response.data});
     });
@@ -172,25 +191,31 @@ class Share extends Component {
                 </div>
               </div>
 
-              {/* Use this div to hide or show comments based on comments click. Also, move text area to top and make it size to content. Also make comment button only show when text is entered.*/}
               { (share.showComments) ?
                 <div>
                   <hr/>
-                  <ShareComments 
-                    shareId={share._id}
-                    commentsInstance={this.state.commentsInstance}
-                  />
-                  <div>
-                    <textarea 
+
+                   <div>
+                    <TextAreaAutosize 
                       name="addComment" 
                       className="addComment" 
-                      rows="3" cols="75" 
+                      placeholder = "Add your comment here..."
                       key={share._id + "comment"}
                       value={this._getTextAreaValue(share._id)}
                       onChange={(e) => {this._handleChange(e, share._id)}}
                     />
-                    <button name="submitComment" onClick={() => {this._submitComment(share._id)}}>Comment</button>
+
+                    {share.showCommentSubmit ?
+                      <button name="submit" className="btn" onClick={() => {this._submitComment(share._id)}}>Comment</button>
+                      :
+                      null
+                    }
                   </div>
+
+                  <ShareComments 
+                    shareId={share._id}
+                    commentsInstance={this.state.commentsInstance}
+                  />
                 </div>
 
                 :

@@ -3,6 +3,7 @@ const config = require('./config.js');
 const Share = require('./../schema/shareSchema');
 const ShareComment = require('./../schema/shareCommentSchema');
 const withAuth = require('./authentication.js');
+const moment = require('moment');
 const router = express.Router();
 
 router.get('/', function(req, res, next) {
@@ -47,7 +48,8 @@ router.post('/comments/:id', function(req, res, next) {
 		shareId: req.params.id,
 		author: (req.body.author === '') ? "Anonymous" : req.body.author,
 		text: req.body.text,
-		likes: 0
+		likes: 0,
+		date: moment().format("MM/DD/YYYY")
 	});
 	newComment.save(function (err, result) {
 		if (err) {
