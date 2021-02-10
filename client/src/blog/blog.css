@@ -1,10 +1,30 @@
+.blog {
+	margin: 0 auto;
+	padding: 5px 10px;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	border-radius: 5px;
+	background-color: #f9f9f9;
+}
+
 .preview {
 	width: 50%;
-	margin: 0 auto;
-	border-style: solid;
-	padding: 5px 10px;
+	margin-bottom: 10px;
 }
 
 .previewTitle {
 	font-weight: bold;
+}
+
+.postTitle {
+	font-weight: bold;
+}
+
+.blogPost {
+	width: 75%;
+}
+
+.blogWrapper button {
+	margin-left: 3%;
 }

@@ -26,19 +26,8 @@ class About extends Component {
         </div>
 
         <div className="aboutContent">
-          <div>
-            <h3>Bio</h3>
-            <p>{this.state.about.bio}</p>
-          </div>
-          <div>
-            <h3>Community Statement</h3>
-            <p>{this.state.about.statement}</p>
-          </div>
-
-          <div>
-            <h3>Services Offered</h3>
-            <p>{this.state.about.services}</p>
-          </div>
+          <h3>Bio</h3>
+          <p>{this.state.about.bio}</p>
         </div>
       </div>
     )

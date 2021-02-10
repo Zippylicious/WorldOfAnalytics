@@ -20,8 +20,8 @@ class PastEngagements extends Component {
 
 	render () {
 		return (
-			<div>
-				<h3>Past Engagements</h3>
+			<div className="engagementsSection">
+				<h2>Past Engagements</h2>
 				{this.state.engagements.map((engagement) =>
 					<div className="engagement" name="engagement" key={engagement._id}>
 						<p>{moment(engagement.date).format('MM/DD/YYYY')}</p>

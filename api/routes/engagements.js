@@ -6,7 +6,7 @@ const withAuth = require('./authentication.js');
 const router = express.Router();
 
 router.get('/past', function(req, res, next) {
-	var query = Engagement.find({ date: {$lt: moment()} });
+	var query = Engagement.find({ date: {$lt: moment()} }).sort({date: 'descending'});
 	query.exec(function(err, pastEngagements) {
 		if(err) {
 			console.log(err);
@@ -18,7 +18,7 @@ router.get('/past', function(req, res, next) {
 
 router.get('/upcoming', function(req, res, next) {
 	console.log("UPCOMING Engagements GET");
-	var query = Engagement.find({ date: {$gte: moment()} });
+	var query = Engagement.find({ date: {$gte: moment()} }).sort({date: 'descending'});
 	query.exec(function(err, upcomingEngagements) {
 		if(err) {
 			console.log(err);

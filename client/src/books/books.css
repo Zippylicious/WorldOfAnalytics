@@ -3,6 +3,10 @@
 	margin: 0 auto;
 	padding: 5px 10px;
 	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	border-radius: 5px;
+	background-color: #f9f9f9;
 }
 
 .bookPreview {
@@ -10,7 +14,7 @@
 }
 
 .bookThumbnail {
-	height: 100%;
+	min-height: 100%;
 	width: 30%;
 	display: inline-block;
 	margin-right: 10px;

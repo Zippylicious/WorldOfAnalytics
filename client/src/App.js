@@ -7,6 +7,7 @@ import Books from './books/books';
 import About from './about/about';
 import Share from './share/share';
 import Admin from './admin/admin';
+import Footer from './footer/footer';
 import withAuth from './withAuth';
 import { BrowserRouter, Route } from "react-router-dom";
 import './App.css';
@@ -25,6 +26,7 @@ function App() {
         <Route exact path ="/share" component={Share} />
         <Route exact path = "/admin" component={withAuth(Admin)} />
       </div>
+      <Footer/>
     </BrowserRouter>
   );
 }

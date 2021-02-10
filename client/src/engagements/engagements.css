@@ -1,10 +1,20 @@
 .engagement {
-	display: inline-block;
-	margin: 0 auto;
 	padding: 10px;
+	display: block;
+	margin: 0 auto;
 	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	background-color: #f9f9f9;
 }
 
 .engagement a {
 	display: block;
+}
+
+.engagementsSection {
+	width: 50%;
+	margin: 0 auto;
 }

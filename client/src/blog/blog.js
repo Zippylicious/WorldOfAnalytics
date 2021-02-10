@@ -54,11 +54,11 @@ class Blog extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="blogWrapper">
 				{ (this.state.isPreview === 1) ?
 					<div>
 						{this.state.posts.map((post) => 
-							<div className="preview" name="preview" key={post._id} onClick={() => this._switchToPost(post._id)}>
+							<div className="blog preview" name="preview" key={post._id} onClick={() => this._switchToPost(post._id)}>
 								<p className="previewTitle">{post.title}</p>
 								<p>{post.byline}</p>
 								<p>{this._truncateBody(post.body)}</p>
@@ -68,9 +68,11 @@ class Blog extends Component {
 					:
 					<div>
 						<button className="btn" onClick={this._switchToPreview}>Back</button>
-						<p className="postTitle">{this.state.post.title}</p>
-						<p>{this.state.post.byline}</p>
-						<p>{this.state.post.body}</p>
+						<div className="blog blogPost">
+							<p className="postTitle">{this.state.post.title}</p>
+							<p>{this.state.post.byline}</p>
+							<p>{this.state.post.body}</p>
+						</div>
 					</div>
 				}
 			</div>
