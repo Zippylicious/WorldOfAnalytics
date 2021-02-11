@@ -1,21 +1,62 @@
 import React, {Component} from 'react';
+import { Link as RouterLink } from "react-router-dom";
+import { AppBar, Toolbar, Typography, makeStyles, Button } from "@material-ui/core";
 import './footer.css';
 
-class Footer extends Component {
+export default function Footer() {
 
-	constructor(props) {
-		super(props);
-		this.state = {}
-	}
+	const headerList = [
+		{
+			label: "About",
+			href: "/"
+		},
+		{
+			label: "Books",
+			href: "/books"
+		},
+		{
+			label: "Blog",
+			href: "/blog"
+		},
+		{
+			label: "Stuff I Share",
+			href: "/share"
+		},
+		{
+			label: "Speaking Engagements",
+			href: "/engagements"
+		},
+		{
+			label: "Contact",
+			href: "/contact"
+		}
+	]
 
+	const getHeaderList = () => {
+		return headerList.map(( { label, href }) => {
+			return (
+	    <Button
+	      {...{
+	        key: label,
+	        color: "inherit",
+	        to: href,
+	        component: RouterLink,
+	      }}
+	      className="footerItem"
+	      >
 
-	render() {
-		return (
-			<div className="footer">
-				This is a footer
+	      {label}
+
+	    </Button>
+	  ); 
+		});
+	};
+
+	return (
+		<div className="footer">
+			<div className="footerItems">
+				{getHeaderList()}
 			</div>
-		);
-	}
+		</div>
+	);
 }
-
-export default Footer;

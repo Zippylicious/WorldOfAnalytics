@@ -57,6 +57,9 @@ class Blog extends Component {
 			<div className="blogWrapper">
 				{ (this.state.isPreview === 1) ?
 					<div>
+						<div className="blogPreviewTitle">
+							<h2>World of Analytics Blog – Musings on Data, Analytics, AI & More</h2>
+						</div>
 						{this.state.posts.map((post) => 
 							<div className="blog preview" name="preview" key={post._id} onClick={() => this._switchToPost(post._id)}>
 								<p className="previewTitle">{post.title}</p>

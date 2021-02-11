@@ -26,7 +26,7 @@ class About extends Component {
         </div>
 
         <div className="aboutContent">
-          <h3>Bio</h3>
+          <h2>John K. Thompson</h2>
           <p>{this.state.about.bio}</p>
         </div>
       </div>

@@ -28,3 +28,9 @@
 .blogWrapper button {
 	margin-left: 3%;
 }
+
+.blogPreviewTitle {
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 125px;
+}

@@ -20,7 +20,7 @@ class UpcomingEngagements extends Component {
 
 	render () {
 		return (
-			<div className="engagementsSection">
+			<div className="engagementsSection upcoming">
 				<h2>Upcoming Engagements</h2>
 				{this.state.engagements.map((engagement) =>
 					<div className="engagement" name="engagement" key={engagement._id}>

@@ -1,9 +1,15 @@
 .footer{
   margin-top: 1rem;
-  padding: 1rem;
-  background-color: rgb(235, 195, 64);
+  padding: .5rem;
+  background-color: #BEBEBE;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
+  text-align: center;
+}
+
+.footerItems {
+	display: inline-block;
+	margin: 0 auto;
 }
