@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Link as RouterLink } from "react-router-dom";
-import { AppBar, Toolbar, Typography, makeStyles, Button } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import './footer.css';
 
 export default function Footer() {

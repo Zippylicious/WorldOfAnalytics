@@ -6,7 +6,7 @@ const withAuth = require('./authentication.js');
 const router = express.Router();
 
 // TODO - register admin users in database (likely me and Dad). Then hide behind authentication.
-router.post('/register', function(req, res) {
+router.post('/register', withAuth, function(req, res) {
   var newUser = new User({
     email: req.body.email, 
     password: req.body.password

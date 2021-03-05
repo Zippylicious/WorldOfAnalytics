@@ -40,7 +40,9 @@ class Books extends Component {
 							<a href={book.buyAudiobookLink} target="_blank" rel="noreferrer">Buy the AudioBook</a>
 
 							<h4>Translated Languages</h4>
-							<p>{book.translatedLanguages}</p>
+							{ book.translatedLanguages.split(',').map((language) =>
+								<div className="bookLanguage">{language}</div>
+							)}
 						</div>
 					</div>
 				)}

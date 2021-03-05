@@ -21,7 +21,9 @@ Style engagements page
 Style contact page  
 Style share page  
 Style blog page 
-Style about page   
+Style about page  
+  
+Mobile view  (Focus on Books + Contact)   
   
 ~~Implement blog page~~  
 ~~Implement books page~~  
@@ -45,10 +47,10 @@ Implement share admin delete
 Implement book admin delete     
   
 ~~Add authentication for admin functions (editing, adding (non-comments), deleting)~~  
-Add authentication for admin page on front end  
-Add login page  
+~~Add authentication for admin page on front end~~  
+~~Add login page~~  
 ~~Add register endpoint (no need for UI)~~
-Add admin accounts and hide register endpoint beind auth  
+~~Add admin accounts and hide register endpoint beind auth~~  
 Add displayed feedback for successful or failed admin action  
 Add local storage to persist admin tab on reload    
   
@@ -60,13 +62,13 @@ Allow for text input to retain formatting for blog, about, etc
 Set up hosting under domain  
   
 ~~Make it so links open new page and direct towards absolute path, rather than relative~~  
-~~Implement likes on share posts~~   
+~~Implement likes on share posts~~ 
+Make it so like button is differently colored once disabled    
   
 Design favicon  
 
 ### Not Required, but High Priority
-
-Mobile view  
+ 
 Implement engagements admin edit  
 Implement share admin edit   
 Implement book admin edit   
@@ -79,5 +81,5 @@ Allow for book sample to be user provided file rather than just Amazon embed url
 Fix denied POST requests from Amazon iFrame(?)  
 Style admin page     
 Implement image upload and display in about & books   
-Add basic validation to prevent duplicate likes from same user    
+~~Add basic validation to prevent duplicate likes from same user~~    
   

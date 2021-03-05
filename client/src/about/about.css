@@ -1,26 +1,15 @@
-.aboutPortrait {
-	width: 45%;
-	margin-right: 5%;
-	display: inline-block;
-}
-
-.aboutPortrait img {
+.aboutContent img {
 	max-height: 100%;
-	max-width: 100%
+	max-width: 45%;
+	margin-right: 20px;
+	float: left;
 }
 
 .aboutContent {
-	width: 50%;
-	height: 100%;
-	vertical-align: top;
-	display: inline-block;
+	width: 75%;
+	margin: 0 auto;
 }
 
 .aboutContent h2 {
 	margin-top: 0;
-}
-
-.aboutWrapper {
-	width: 75%;
-	margin: 0 auto;
 }

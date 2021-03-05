@@ -20,16 +20,11 @@ class About extends Component {
 
   render() {
     return (
-      <div className="aboutWrapper">
-        <div className="aboutPortrait">
-        	<img src={portrait} alt="John Thompson"/>
-        </div>
-
-        <div className="aboutContent">
-          <h2>John K. Thompson</h2>
-          <p>{this.state.about.bio}</p>
-        </div>
-      </div>
+      <div className="aboutContent">
+      	<img src={portrait} alt="John Thompson"/>
+        <h2>John K. Thompson</h2>
+        <p>{this.state.about.bio}</p>
+      </div>          
     )
   }
 }
