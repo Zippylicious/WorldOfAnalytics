@@ -1,12 +1,12 @@
 .aboutContent img {
 	max-height: 100%;
-	max-width: 45%;
+	max-width: 50%;
 	margin-right: 20px;
 	float: left;
 }
 
 .aboutContent {
-	width: 75%;
+	width: 1000px;
 	margin: 0 auto;
 }
 

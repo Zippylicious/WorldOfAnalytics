@@ -14,12 +14,39 @@ class AdminBlog extends Component {
 		};
 
 		this._handleChange = this._handleChange.bind(this);
+		this._handleBodyChange = this._handleBodyChange.bind(this);
+		this._readFileInputEventAsArrayBuffer = this._readFileInputEventAsArrayBuffer.bind(this);
 		this._handleSubmit = this._handleSubmit.bind(this);
 	}
 
 	_handleChange(e) {
 		this.setState({  [e.target.name]: e.target.value });
 	}
+
+	_handleBodyChange(e) {
+		var mammoth = require("mammoth");
+		var that = this;
+		this._readFileInputEventAsArrayBuffer(e, function(arrayBuffer) {
+            mammoth.convertToHtml({arrayBuffer: arrayBuffer})
+                .then(function(result){
+					that.setState({ body: result.value});
+				})
+                .done();
+        });
+	}
+
+	_readFileInputEventAsArrayBuffer(e, callback) {
+        var reader = new FileReader();
+        
+        var file = e.target.files[0];
+
+        reader.onload = function(loadEvent) {
+            var arrayBuffer = loadEvent.target.result;
+            callback(arrayBuffer);
+        };
+        
+        reader.readAsArrayBuffer(file);
+    }
 
 	_handleSubmit() {
 		var errors = ["Required fields that are missing:"];
@@ -64,7 +91,7 @@ class AdminBlog extends Component {
 				</div>
 				<div>
 					<label htmlFor="body">Body</label>
-					<textarea name="body" rows="50" cols="200" value={this.state.body} onChange={this._handleChange}/>
+					<input type="file" name="body" accept=".docx" onChange={this._handleBodyChange}/>
 				</div>
 
 				<button name="submit" onClick={this._handleSubmit}>Submit</button>

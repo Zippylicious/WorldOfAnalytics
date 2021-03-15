@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import ReactHtmlParser from 'react-html-parser';
 import portrait from './../img/portrait.jpeg';
 import './about.css';
 
@@ -23,7 +24,7 @@ class About extends Component {
       <div className="aboutContent">
       	<img src={portrait} alt="John Thompson"/>
         <h2>John K. Thompson</h2>
-        <p>{this.state.about.bio}</p>
+        { ReactHtmlParser(this.state.about.bio) }
       </div>          
     )
   }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import ReactHtmlParser from 'react-html-parser';
 import './blog.css';
 
 class Blog extends Component {
@@ -64,7 +65,7 @@ class Blog extends Component {
 							<div className="blog preview" name="preview" key={post._id} onClick={() => this._switchToPost(post._id)}>
 								<p className="previewTitle">{post.title}</p>
 								<p>{post.byline}</p>
-								<p>{this._truncateBody(post.body)}</p>
+								<p>{ReactHtmlParser(this._truncateBody(post.body))}</p>
 							</div>
 						)}
 					</div>
@@ -74,7 +75,7 @@ class Blog extends Component {
 						<div className="blog blogPost">
 							<p className="postTitle">{this.state.post.title}</p>
 							<p>{this.state.post.byline}</p>
-							<p>{this.state.post.body}</p>
+							<p>{ReactHtmlParser(this.state.post.body)}</p>
 						</div>
 					</div>
 				}
