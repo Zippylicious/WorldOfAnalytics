@@ -48,7 +48,7 @@ class Blog extends Component {
 	}
 
 	componentDidMount() {
-		axios.get("http://localhost:9000/admin/blog/posts").then((response) => {
+		axios.get("/admin/blog/posts").then((response) => {
 			this.setState({posts: response.data});
 		});
 	}

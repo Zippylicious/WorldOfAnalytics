@@ -12,7 +12,7 @@ class PastEngagements extends Component {
 	}
 
 	componentDidMount() {
-		axios.get("http://localhost:9000/admin/engagements/past").then((response) => {
+		axios.get("/admin/engagements/past").then((response) => {
 			this.setState({engagements: response.data});
 		});
 	}

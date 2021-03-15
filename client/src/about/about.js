@@ -14,7 +14,7 @@ class About extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:9000/admin/about").then((response) => {
+    axios.get("/admin/about").then((response) => {
       this.setState({about: response.data});
     });
   }

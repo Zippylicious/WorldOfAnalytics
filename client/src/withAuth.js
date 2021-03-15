@@ -15,7 +15,7 @@ export default function withAuth(ComponentToProtect) {
 
     componentDidMount() {
       let self = this;
-      axios.get("http://localhost:9000/admin/user/token")
+      axios.get("/admin/user/token")
         .then(function(response) {
           if (response.status === 200) {
             self.setState({ loading: false });

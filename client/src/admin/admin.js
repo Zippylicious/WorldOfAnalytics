@@ -16,7 +16,7 @@ class Admin extends Component {
 			showBlog: false,
 			showShare: false,
 			showEngagements: false,
-			baseUrl: "http://localhost:9000/admin/"
+			baseUrl: "/admin/"
 		};
 
 		this._handleClick = this._handleClick.bind(this);

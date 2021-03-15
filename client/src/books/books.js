@@ -12,7 +12,7 @@ class Books extends Component {
 	}
 
 	componentDidMount() {
-		axios.get("http://localhost:9000/admin/books").then((response) => {
+		axios.get("/admin/books").then((response) => {
 			this.setState({books: response.data});
 		});
 	}

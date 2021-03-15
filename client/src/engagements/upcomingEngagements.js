@@ -12,7 +12,7 @@ class UpcomingEngagements extends Component {
 	}
 
 	componentDidMount() {
-		axios.get("http://localhost:9000/admin/engagements/upcoming").then((response) => {
+		axios.get("/admin/engagements/upcoming").then((response) => {
 			this.setState({engagements: response.data});
 		});
 	}

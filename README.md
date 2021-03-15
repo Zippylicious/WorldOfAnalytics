@@ -50,11 +50,9 @@ Implement book admin delete
 ~~Add authentication for admin page on front end~~  
 ~~Add login page~~  
 ~~Add register endpoint (no need for UI)~~
-~~Add admin accounts and hide register endpoint beind auth~~  
-Add displayed feedback for successful or failed admin action  
-Add local storage to persist admin tab on reload    
+~~Add admin accounts and hide register endpoint beind auth~~      
   
-Allow for text input to retain formatting for blog, about, etc  
+~~Allow for text input to retain formatting for blog, about, etc~~  
   
 ~~Set up database~~  
 ~~Set up react~~  
@@ -82,4 +80,6 @@ Fix denied POST requests from Amazon iFrame(?)
 Style admin page     
 Implement image upload and display in about & books   
 ~~Add basic validation to prevent duplicate likes from same user~~    
+Add displayed feedback for successful or failed admin action  
+Add local storage to persist admin tab on reload  
   

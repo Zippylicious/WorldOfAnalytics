@@ -41,7 +41,7 @@ class Share extends Component {
   _likePost(shareId) {
     var index = this._containsShare(shareId);
     if(index !== -1 && !this.state.shares[index].likeDisabled) {
-      var endpoint = "http://localhost:9000/admin/share/like/" + shareId;
+      var endpoint = "/admin/share/like/" + shareId;
       axios.post(endpoint, {});
       var shares = [...this.state.shares];
       var share = {...shares[index]};
@@ -119,7 +119,7 @@ class Share extends Component {
       var commentKey = shareId + "comment";
       var comment = this.state.commentSubmits[this._containsCommentsKey(commentKey)];
 
-      var endpoint = "http://localhost:9000/admin/share/comments/" + shareId;
+      var endpoint = "/admin/share/comments/" + shareId;
       var request = {
         shareId: shareId,
         author: '',
@@ -137,7 +137,7 @@ class Share extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:9000/admin/share").then((response) => {
+    axios.get("/admin/share").then((response) => {
       var i;
       for(i = 0; i < response.data.length; i++) {
         response.data[i]["likeDisabled"] = false;

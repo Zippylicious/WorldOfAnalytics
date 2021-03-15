@@ -14,7 +14,7 @@ class ShareComments extends Component {
 	}
 
 	_getComments() {
-		var endpoint = "http://localhost:9000/admin/share/comments/" + this.props.shareId;
+		var endpoint = "/admin/share/comments/" + this.props.shareId;
 	    axios.get(endpoint).then((response) => {
 	    	this.setState({comments: response.data});
 	    });
