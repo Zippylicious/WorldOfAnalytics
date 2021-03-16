@@ -1,4 +1,8 @@
 #root {
 	font-family: Garamond;
 	line-height: 1.5;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	margin: 0;
 }

@@ -1,15 +1,35 @@
-.aboutContent img {
-	max-height: 100%;
-	max-width: 50%;
-	margin-right: 20px;
-	float: left;
+.aboutBackground {
+	height: 100%;
+	width: 100%;
+	background-image: url("../img/portraitCropped.jpeg");
 }
 
 .aboutContent {
+	display: inline-block;
 	width: 1000px;
-	margin: 0 auto;
+	margin-left: 45%;
+	justify-content: center;
+	margin-top: 100px;
 }
 
-.aboutContent h2 {
+.bioTitle {
+	width: 50%;
+	margin: 0 auto;
+	color: white;   
+   	text-shadow: 1px 1px #000000;
+   	font-size: 2em;
+   	font-weight: bold;
+   	z-index: 2;
+   	text-align: center;
+}
+
+.aboutBio {
 	margin-top: 0;
+	color: white;   
+   	background: rgb(0, 0, 0);
+   	background: rgba(0, 0, 0, 0.25);
+   	text-shadow: 1px 1px #000000;
+   	font-size: 1.1em;
+   	padding: 10px; 
+   	z-index: 2;
 }

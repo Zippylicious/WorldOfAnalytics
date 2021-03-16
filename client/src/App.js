@@ -16,7 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header/>
-      <div style={{ marginTop: 100, marginBottom: 75}}>
+      <div style={{ height: "100%", width: "100%"}}>
         <Route exact path = "/blog" component={Blog} />
         <Route exact path = "/login" component={Login} />
         <Route exact path = "/contact" component={Contact} />

@@ -1,7 +1,14 @@
-.btn {
-	border-radius: 20px;
+html, body {
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+  	height: 100%;
+  	width: 100%;
+  	overflow: auto;
+  	margin: 0;
 }
 
-html, body {
-	background-color: #E8E8E8;
+.btn {
+	border-radius: 20px;
 }
