@@ -151,81 +151,83 @@ class Share extends Component {
   render() {
     //Be careful - proxy for CORS with the plugin seems to be finnicky
     return (
-      <div>
-        { this.state.shares.map((share) => 
-          <div name="share" className="share" key={share._id}>
-            <div className="shareAuthor">
-              <div className="shareAuthorImage">
-                <img src={headshot} alt="John Thompson"/>
-              </div>
-              <div className="shareAuthorText">
-                <span className="shareAuthorName">John Thompson</span>
-                <span className="shareAuthorDescription">List of titles/accomplishments</span>
-              </div>
-            </div>
-
-            <div className="shareText">
-              {share.text}
-            </div>
-
-            {/*<a href={share.link}>{share.link}</a>*/}
-
-            <ReactTinyLink 
-              cardSize="large"
-              showGraphic={true}
-              maxLine={2}
-              minLine={1}
-              url={share.link}
-              proxyUrl="https://thingproxy.freeboard.io/fetch"
-            />
-
-            <div className="userInteractions">
-              <div className="shareLikesAndComments">
-                <div onClick={() => this._likePost(share._id)} className="shareLikes">
-                  <FontAwesomeIcon icon={faThumbsUp} />
-                  <div className="shareLikeCount">{share.likes}</div>
+      <div className="shareBackground">
+        <div className="shareWrapper">
+          { this.state.shares.map((share) => 
+            <div name="share" className="share" key={share._id}>
+              <div className="shareAuthor">
+                <div className="shareAuthorImage">
+                  <img src={headshot} alt="John Thompson"/>
                 </div>
-                <div onClick={() => this._showComments(share._id)} className="shareCommentsIcon">
-                  <FontAwesomeIcon icon={faComment} />
-                  <div>Comment</div>
+                <div className="shareAuthorText">
+                  <span className="shareAuthorName">John Thompson</span>
+                  <span className="shareAuthorDescription">List of titles/accomplishments</span>
                 </div>
               </div>
 
-              { (share.showComments) ?
-                <div>
-                  <hr/>
+              <div className="shareText">
+                {share.text}
+              </div>
 
-                   <div>
-                    <TextAreaAutosize 
-                      name="addComment" 
-                      className="addComment" 
-                      placeholder = "Add your comment here..."
-                      key={share._id + "comment"}
-                      value={this._getTextAreaValue(share._id)}
-                      onChange={(e) => {this._handleChange(e, share._id)}}
+              {/*<a href={share.link}>{share.link}</a>*/}
+
+              <ReactTinyLink 
+                cardSize="large"
+                showGraphic={true}
+                maxLine={2}
+                minLine={1}
+                url={share.link}
+                proxyUrl="https://thingproxy.freeboard.io/fetch"
+              />
+
+              <div className="userInteractions">
+                <div className="shareLikesAndComments">
+                  <div onClick={() => this._likePost(share._id)} className="shareLikes">
+                    <FontAwesomeIcon icon={faThumbsUp} />
+                    <div className="shareLikeCount">{share.likes}</div>
+                  </div>
+                  <div onClick={() => this._showComments(share._id)} className="shareCommentsIcon">
+                    <FontAwesomeIcon icon={faComment} />
+                    <div>Comment</div>
+                  </div>
+                </div>
+
+                { (share.showComments) ?
+                  <div>
+                    <hr/>
+
+                     <div>
+                      <TextAreaAutosize 
+                        name="addComment" 
+                        className="addComment" 
+                        placeholder = "Add your comment here..."
+                        key={share._id + "comment"}
+                        value={this._getTextAreaValue(share._id)}
+                        onChange={(e) => {this._handleChange(e, share._id)}}
+                      />
+
+                      {share.showCommentSubmit ?
+                        <button name="submit" className="btn" onClick={() => {this._submitComment(share._id)}}>Comment</button>
+                        :
+                        null
+                      }
+                    </div>
+
+                    <ShareComments 
+                      shareId={share._id}
+                      commentsInstance={this.state.commentsInstance}
                     />
-
-                    {share.showCommentSubmit ?
-                      <button name="submit" className="btn" onClick={() => {this._submitComment(share._id)}}>Comment</button>
-                      :
-                      null
-                    }
                   </div>
 
-                  <ShareComments 
-                    shareId={share._id}
-                    commentsInstance={this.state.commentsInstance}
-                  />
-                </div>
+                  :
 
-                :
-
-                null
-              }
-            </div>
-          </div> 
-        )}
-      </div>
+                  null
+                }
+              </div>
+            </div> 
+          )}
+          </div>
+        </div>
     )
   }
 }

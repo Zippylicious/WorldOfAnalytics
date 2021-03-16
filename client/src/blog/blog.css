@@ -1,3 +1,16 @@
+.blogBackground {
+	background-image: url("../img/GenericBackground1.jpg");
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
+.blogWrapper {
+	display: inline-block;
+	margin-top: 100px;
+}
+
 .blog {
 	margin: 0 auto;
 	padding: 5px 10px;
@@ -32,5 +45,7 @@
 .blogPreviewTitle {
 	width: 50%;
 	margin: 0 auto;
-	margin-top: 125px;
+	color: white;
+	text-shadow: 2px 2px #000000;
+	text-align: center;
 }
