@@ -1,12 +1,11 @@
 .shareBackground {
-	height: 100%;
-	width: 100%;
 	background-image: url("../img/GenericBackground2.jpg");
 	text-align: center;
 	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
   	background-size: cover;
+  	padding-bottom: 52px;
 }
 
 .shareWrapper {

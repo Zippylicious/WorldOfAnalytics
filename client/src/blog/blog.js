@@ -55,9 +55,10 @@ class Blog extends Component {
 
 	render() {
 		return (
-			<div className="blogBackground">
-				<div className="blogWrapper">
-					{ (this.state.isPreview === 1) ?
+			<div>
+			{ (this.state.isPreview === 1) ?
+				<div className="blogBackground" style={{height: "100%", paddingBottom: 52}}>
+					<div className="blogWrapper">
 						<div>
 							<div className="blogPreviewTitle">
 								<h2>World of Analytics Blog – Musings on Data, Analytics, AI & More</h2>
@@ -70,7 +71,11 @@ class Blog extends Component {
 								</div>
 							)}
 						</div>
-						:
+					</div>
+				</div>
+				:
+				<div className="blogBackground" style={{paddingBottom: 70}}>
+					<div className="blogWrapper">
 						<div>
 							<button className="btn" onClick={this._switchToPreview}>Back</button>
 							<div className="blog blogPost">
@@ -79,10 +84,11 @@ class Blog extends Component {
 								<p>{ReactHtmlParser(this.state.post.body)}</p>
 							</div>
 						</div>
-					}
+					</div>
 				</div>
+			}
 			</div>
-		)
+		);
 	}
 }
 

@@ -14,3 +14,9 @@
 .adminForm label {
 	margin-right: 5px;
 }
+
+.adminWrapper {
+	display: inline-block;
+	margin-top: 100px;
+	margin-left: 20px;
+}

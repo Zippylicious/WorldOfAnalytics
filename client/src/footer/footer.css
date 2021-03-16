@@ -1,9 +1,10 @@
 .footer{
   padding: .5rem;
   background-color: #BEBEBE;
-  position: relative;
+  position: fixed;
   bottom: 0;
   left: 0;
+  width: 100%;
   text-align: center;
   display: block;
 }

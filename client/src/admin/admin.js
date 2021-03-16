@@ -45,7 +45,7 @@ class Admin extends Component {
 	render() {
 
 		return (
-			<div>
+			<div className="adminWrapper">
 				<div>
 					<button name="about" onClick={this._handleClick}>About</button>
 					<button name="book" onClick={this._handleClick}>Book</button>
