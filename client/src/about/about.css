@@ -1,16 +1,13 @@
 .aboutBackground {
-	height: 100%;
-	width: 100%;
 	background-image: url("../img/portraitCropped.jpeg");
-	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
+	background-size: 100%;
+	background-repeat: repeat-y;
 }
 
 .aboutContent {
 	display: inline-block;
-	width: 1000px;
+	width: 40%;
+	max-height: 100%;
 	margin-left: 45%;
 	justify-content: center;
 	margin-top: 100px;

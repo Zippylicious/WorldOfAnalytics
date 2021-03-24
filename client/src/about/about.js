@@ -20,14 +20,14 @@ class About extends Component {
 
   render() {
     return (
-      <div className="aboutBackground">
+      <div className="aboutBackground" style={{minHeight: "100%", paddingBottom: -52}}>
         <div className="aboutContent">
           <div className="aboutBio">
             <div className="bioTitle">John K. Thompson</div>
             { ReactHtmlParser(this.state.about.bio) }
           </div>
         </div>
-      </div>        
+      </div>    
     )
   }
 }

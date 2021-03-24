@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Button from 'react-bootstrap/Button';
 import moment from 'moment';
 
 class PastEngagements extends Component {
@@ -9,6 +11,8 @@ class PastEngagements extends Component {
 		this.state = {
 			engagements: []
 		};
+
+		this._btnOnClick = this._btnOnClick.bind(this);
 	}
 
 	componentDidMount() {
@@ -17,6 +21,10 @@ class PastEngagements extends Component {
 		});
 	}
 
+	_btnOnClick(link) {
+		const newWindow = window.open(link, '_blank', 'noopener,noreferrer');
+  		if (newWindow) newWindow.opener = null;
+	}
 
 	render () {
 		return (
@@ -24,11 +32,19 @@ class PastEngagements extends Component {
 				<h2>Past Engagements</h2>
 				{this.state.engagements.map((engagement) =>
 					<div className="engagement" name="engagement" key={engagement._id}>
-						<p>{moment(engagement.date).format('MM/DD/YYYY')}</p>
+						<span className="engagementDate">{moment(engagement.date).format('MMM Do YYYY')}</span>
 						<p>{engagement.event}</p>
-						<a className="engagementLink" name="engagementLink" href={engagement.eventLink} target="_blank" rel="noreferrer">Event Site</a>
-						<a className="engagementLink" name="engagementLink" href={engagement.recordingLink} target="_blank" rel="noreferrer">Recording Link</a>
-						<a className="engagementLink" name="engagementLink" href={engagement.presentationLink} target="_blank" rel="noreferrer">Presentation Link</a>
+						<ButtonGroup size="sm">
+							<Button className="engagementBtn firstBtn" onClick={() => this._btnOnClick(engagement.eventLink)}>
+								Event Site
+							</Button>
+							<Button className="engagementBtn" onClick={() => this._btnOnClick(engagement.recordingLink)}>
+								Event Recording
+							</Button>
+							<Button className="engagementBtn lastBtn" onClick={() => this._btnOnClick(engagement.presentationLink)}>
+								Event Presentation
+							</Button>
+						</ButtonGroup>
 					</div>
 				)}
 			</div>

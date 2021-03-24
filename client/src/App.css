@@ -1,14 +1,10 @@
 html, body {
-	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
   	height: 100%;
   	width: 100%;
   	overflow: auto;
   	margin: 0;
 }
 
-.btn {
+/*.btn {
 	border-radius: 20px;
-}
+}*/

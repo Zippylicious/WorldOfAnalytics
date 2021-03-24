@@ -1,9 +1,8 @@
 .blogBackground {
 	background-image: url("../img/GenericBackground1.jpg");
-	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
+	/* may need to switch to repeat-y and height 100 if content keeps stretching */
+	background-size: 100%;
+  	background-repeat: repeat-y;
 }
 
 .blogWrapper {

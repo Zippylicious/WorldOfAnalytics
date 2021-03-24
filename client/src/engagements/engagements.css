@@ -1,3 +1,16 @@
+.engagementsBackground {
+	text-align: center;
+	background-image: url("../img/GenericBackground1.jpg");
+	background-size: 100%;
+	background-repeat: repeat-y;
+	min-height: 100%;
+}
+
+.engagementsWrapper {
+	width: 1000px;
+	display: inline-block;
+}
+
 .engagement {
 	padding: 10px;
 	display: block;
@@ -15,10 +28,49 @@
 }
 
 .engagementsSection {
-	width: 50%;
+	width: 1000px;
 	margin: 0 auto;
 }
 
 .past {
 	margin-top: 45px;
+}
+
+.upcoming {
+	margin-top: 100px;
+}
+
+.engagementsSection h2 {
+	color: white;
+	text-shadow: 2px 2px #000000;
+}
+
+.engagementBtn {
+	background-color: grey; /* Green */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+.firstBtn {
+  	border-top-left-radius: 3px;
+  	border-bottom-left-radius: 3px;
+  	border-right: 1px;
+  	border-right-color: black;
+}
+
+.lastBtn {
+	border-top-right-radius: 3px;
+  	border-bottom-right-radius: 3px;
+  	border-left: 1px;
+  	border-left-color: black;
+}
+
+.engagementDate {
+	font-weight: bold;
+	font-size: 1.1em;
 }

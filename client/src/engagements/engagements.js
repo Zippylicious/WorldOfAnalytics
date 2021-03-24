@@ -14,9 +14,11 @@ class Engagements extends Component {
 
 	render () {
 		return (
-			<div>
-				<UpcomingEngagements />
-				<PastEngagements />
+			<div className="engagementsBackground">
+				<div className="engagementsWrapper">
+					<UpcomingEngagements />
+					<PastEngagements />
+				</div>
 			</div>
 		);
 	}

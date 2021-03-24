@@ -1,10 +1,8 @@
 .shareBackground {
-	background-image: url("../img/GenericBackground2.jpg");
+	background-image: url("../img/GenericBackground1.jpg");
 	text-align: center;
-	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
+	background-size: 100%;
+  	background-repeat: repeat-y;
   	padding-bottom: 52px;
 }
 
