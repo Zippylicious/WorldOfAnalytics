@@ -11,7 +11,8 @@ class Contact extends Component {
   		contactValue: '',
   		areaOfInterest: 'engagement',
   		freeFormText: '',
-  		errorMessage: ''
+  		errorMessage: '',
+      successMessage: ''
   	}
 
   	this._contactMethodChange = this._contactMethodChange.bind(this);
@@ -56,22 +57,29 @@ class Contact extends Component {
   	}
 
   	axios.post("/admin/contact", this.state)
-  	     .then(() => console.log("Contact form submitted"))
-  	     .catch(err => {console.error(err);}
-    );
-
-    this.setState({
-      contactMethod: 'text',
-      contactValue: '',
-      areaOfInterest: 'engagement',
-      freeFormText: '',
-      errorMessage: ''
-    });
+  	     .then(() => {
+            console.log("Contact form submitted");
+            this.setState({
+              contactMethod: 'text',
+              contactValue: '',
+              areaOfInterest: 'engagement',
+              freeFormText: '',
+              errorMessage: '',
+              successMessage: 'Your inquiry has been sent!'
+            });
+          })
+  	     .catch(err => {
+            console.error(err);
+            this.setState({
+              errorMessage: 'There was an error submitting your inquiry. Please try again later.',
+              successMessage: ''
+            });
+          });
   }
 
   render() {
     return (
-      <div class="contactBackground">
+      <div className="contactBackground">
         <div id="contactForm">
   	      <div>
             <h4>Preferred Method of Contact</h4>
@@ -96,8 +104,9 @@ class Contact extends Component {
             <h4>Your Message</h4>
   	      	<textarea id="free-form-text" name="free-form-text" value={this.state.freeFormText} onChange={this._freeFormTextChange}/>
   	      </div>
-  	      <button className="btn" name="submit" onClick={this._handleSubmit}>Submit</button>
-  	      <p style={{color: "red"}} id="error-message" name="error-message">{this.state.errorMessage}</p> 
+  	      <button className="contactSubmit" name="submit" onClick={this._handleSubmit}>Submit</button>
+  	      <p style={{color: "red"}} id="error-message" name="error-message">{this.state.errorMessage}</p>
+          <p style={{color: "green"}} id="success-message" name="success-message">{this.state.successMessage}</p>
         </div>
       </div>
     )
