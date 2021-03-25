@@ -1,16 +1,9 @@
-.aboutBackground {
-	background-image: url("../img/portraitCropped.jpeg");
-	background-size: 100%;
-	background-repeat: repeat-y;
-}
-
 .aboutContent {
-	display: inline-block;
-	width: 40%;
 	max-height: 100%;
-	margin-left: 45%;
 	justify-content: center;
-	margin-top: 100px;
+	width: 80%;
+	margin: 100px auto 60px auto;
+	vertical-align: top;
 }
 
 .bioTitle {
@@ -27,11 +20,73 @@
 .aboutBio {
 	margin-top: 0;
 	color: white;   
-   	background: rgb(0, 0, 0);
-   	background: rgba(0, 0, 0, 0.25);
    	text-shadow: 1px 1px #000000;
    	font-size: 1.1em;
-   	padding: 10px; 
    	z-index: 2;
-   	padding-bottom: 1px;
+   	width: 49%;
+   	display: inline-block;
+   	padding: 10px;
+	padding-bottom: 1px;
+	background-color: #333333;
+}
+
+.aboutPortrait {
+	display: inline-block;
+	width: 49%;
+	padding: 10px;
+	padding-bottom: 1px;
+	margin-top: 0;
+}
+
+.aboutPortrait img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+
+@media screen and (max-width: 2500px) {
+	.aboutContent {
+		max-height: 100%;
+		justify-content: center;
+		width: 60%;
+		margin: 100px auto 60px auto;
+		vertical-align: top;
+	}
+
+	.bioTitle {
+		width: 50%;
+		margin: 0 auto;
+		color: white;   
+	   	text-shadow: 1px 1px #000000;
+	   	font-size: 2em;
+	   	font-weight: bold;
+	   	z-index: 2;
+	   	text-align: center;
+	}
+
+	.aboutBio {
+		margin-top: 0;
+		color: white;   
+	   	text-shadow: 1px 1px #000000;
+	   	font-size: 1.1em;
+	   	z-index: 2;
+	   	padding: 10px;
+		padding-bottom: 1px;
+		width: 100%;
+		background-color: #333333;
+		border-radius: 2px;
+	}
+
+	.aboutPortrait {
+		padding: 10px;
+		padding-bottom: 1px;
+		margin-top: 0;
+		width: 75%;
+		margin-left: 12.5%;
+	}
+
+	.aboutPortrait img {
+		max-height: 100%;
+		max-width: 100%;
+	}
 }

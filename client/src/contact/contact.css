@@ -1,17 +1,13 @@
-.contactBackground {
+.subRoot {
 	background-image: url("../img/GenericBackground1.jpg");
 	/* may need to switch to repeat-y and height 100 if content keeps stretching */
 	background-size: 100%;
   	background-repeat: repeat-y;
-  	height: 100%;
-  	text-align: center;
 }
 
 #contactForm {
 	width: 850px;
-	margin: 0 auto;
-	display: inline-block;
-	margin-top: 75px;
+	margin: 10% auto 0 auto;
 	background: rgb(220, 220, 220);
    	background: rgba(220, 220, 220, 1);
    	padding: 15px;

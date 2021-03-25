@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
 import './about.css';
+import portrait from '../img/portraitTransparent.png';
 
 class About extends Component {
 
@@ -20,12 +21,13 @@ class About extends Component {
 
   render() {
     return (
-      <div className="aboutBackground" style={{minHeight: "100%", paddingBottom: -52}}>
-        <div className="aboutContent">
-          <div className="aboutBio">
-            <div className="bioTitle">John K. Thompson</div>
-            { ReactHtmlParser(this.state.about.bio) }
-          </div>
+      <div className="aboutContent">
+        <div className="aboutPortrait">
+          <img src={portrait} alt="John Thompson"/>
+        </div>
+        <div className="aboutBio">
+          <div className="bioTitle">John K. Thompson</div>
+          { ReactHtmlParser(this.state.about.bio) }
         </div>
       </div>    
     )
