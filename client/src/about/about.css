@@ -28,6 +28,7 @@
    	padding: 10px;
 	padding-bottom: 1px;
 	background-color: #333333;
+	border-radius: 5px;
 }
 
 .aboutPortrait {
@@ -81,8 +82,8 @@
 		padding: 10px;
 		padding-bottom: 1px;
 		margin-top: 0;
-		width: 75%;
-		margin-left: 12.5%;
+		width: 60%;
+		margin-left: 20%;
 	}
 
 	.aboutPortrait img {

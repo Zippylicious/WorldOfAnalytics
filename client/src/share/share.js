@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import { ReactTinyLink } from 'react-tiny-link';
 import ShareComments from './shareComments';
-import headshot from './../img/headshot.jpg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp, faComment } from '@fortawesome/free-solid-svg-icons'
+import headshot from './../img/headshotTransparent.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThumbsUp, faComment } from '@fortawesome/free-solid-svg-icons';
 import TextAreaAutosize from 'react-textarea-autosize';
 import './share.css';
 

@@ -18,6 +18,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', withAuth, function(req, res, next) {
 	var newBook = new Books({
+		title: req.body.title,
 		sampleLink: req.body.sampleLink.replace("embed", "card"),
 		coverImage: req.body.coverImage,
 		description: req.body.description,

@@ -13,6 +13,7 @@
 
 # images
 /src/img/*
+/public/img/*
 
 # misc
 .DS_Store

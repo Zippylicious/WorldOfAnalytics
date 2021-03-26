@@ -6,6 +6,7 @@ class AdminBook extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			title: '',
 			sampleLink: '',
 			coverImage: null,
 			description: '',
@@ -32,6 +33,9 @@ class AdminBook extends Component {
 			errors.push("Sample Link");
 		}
 		//TODO - cover image goes here when implemented
+		if(this.state.title === '') {
+			errors.push("Title");
+		}
 		if(this.state.description === '') {
 			errors.push("Description");
 		}
@@ -57,6 +61,7 @@ class AdminBook extends Component {
 			);
 
 			 this.setState({
+			 	title: '',
 				sampleLink: '',
 				coverImage: null,
 				description: '',
@@ -79,12 +84,16 @@ class AdminBook extends Component {
 			<div className="adminForm">
 				<h3>Add a book</h3>
 				<div>
-					<label htmlFor="sample">Sample Link (Amazon Embed)</label>
+					<label htmlFor="sampleLink">Sample Link (Amazon Embed)</label>
 					<input type="url" name="sampleLink" value={this.state.sampleLink} onChange={this._handleChange} />
 				</div>
 				<div>
 					<label htmlFor="coverImage">Cover Image</label>
 					<input type="file" name="coverImage" accept="image/*" />
+				</div>
+				<div>
+					<label htmlFor="title">Title</label>
+					<textarea name="title" rows={2} cols={cols} value={this.state.title} onChange={this._handleChange} />
 				</div>
 				<div>
 					<label htmlFor="description">Description</label>
